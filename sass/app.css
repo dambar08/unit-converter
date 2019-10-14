@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+html,
+body {
+  background-color: #161616;
+  color: #c5c5c5;
+}
+
+.main-container {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-container .container {
+  width: 100%;
+}
+
+.main-container .container select {
+  width: 100%;
+}
+
+.main-container .sec-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.main-container .sec-container .mini-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-container .sec-container .mini-container input {
+  border: 0;
+  background-color: #323232;
+  color: #eeeeee;
+  font-weight: 900;
+  height: 60px;
+  border-radius: 5px 5px 0 0;
+}
+
+.main-container .sec-container .mini-container select {
+  border-radius: 0 0px 5px 5px;
+}
+
+select {
+  border-radius: 5px;
+  width: 100%;
+  border: 0;
+  height: 40px;
+  background-color: #323232;
+  color: #eeeeee;
+}
+
+select:hover {
+  cursor: pointer;
+  background-color: #494949;
+}
+
+.mt-1 {
+  margin-top: 8px;
+}
+
+.mt-2 {
+  margin-top: 16px;
+}
+
+.mt-3 {
+  margin-top: 24px;
+}
+
+.mt-4 {
+  margin-top: 32px;
+}
+
+.mt-5 {
+  margin-top: 40px;
+}
+/*# sourceMappingURL=app.css.map */

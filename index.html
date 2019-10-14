@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unit convertor</title>
+    <link rel="stylesheet" href="sass/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body>
+    <h1>Unit Convertor</h1>
+    <div class="main-container">
+        <div class="container">
+            <select id="unit-picker">
+                <option value="angle">Angle</option>
+                <option value="area">Area</option>
+                <option value="data_transfer_rate">Data Transfer Rate</option>
+                <option value="digital_storage">Digital Storage</option>
+                <option value="duration">Duration</option>
+                <option value="energy">Energy</option>
+                <option value="force">Force</option>
+                <option value="frequency">Frequency</option>
+                <option value="length">Length</option>
+                <option value="mass">Mass</option>
+                <option value="power">Power</option>
+                <option value="pressure">Pressure</option>
+                <option value="speed">Speed</option>
+                <option value="temperature">Temperature</option>
+                <option value="volume">Volume</option>
+            </select>
+        </div>
+
+        <div class="sec-container mt-2">
+            <div class="mini-container">
+                <input type="number">
+                <select name="" id="from">
+                    <!-- <option value="Arcminute">Arcminute</option>
+                        "Arcsecond",
+                        "Cycles",
+                        "Degrees",
+                        "Gradians",
+                        "Microarcsecond",
+                        "Microradian",
+                        "Milliarcsecond",
+                        "Milliradian",
+                        "Radians",
+                        "Revolution", -->
+                </select>
+            </div>
+            <div class="mini-container">
+                =
+            </div>
+            <div class="mini-container">
+                <input type="number">
+                <select name="" id="to"></select>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
