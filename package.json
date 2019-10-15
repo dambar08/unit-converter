@@ -2,7 +2,7 @@
   "name": "unit-converter",
   "version": "1.0.0",
   "description": "Convert one unit to another",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

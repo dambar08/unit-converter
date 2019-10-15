@@ -60,6 +60,8 @@ const TO_TEMPERATURE_DEFAULT = 1;
 const FROM_VOLUME_DEFAULT = 19;
 const TO_VOLUME_DEFAULT = 20;
 
+
+
 $(document).ready(function () {
     $("select#unit-picker").on("change", function () {
         if ($("select#unit-picker option:selected").val() == "angle") {
@@ -94,6 +96,8 @@ $(document).ready(function () {
             setSelect(getVolumeOptions(), FROM_VOLUME_DEFAULT, TO_VOLUME_DEFAULT);
         }
     });
+
+    
 });
 
 function setSelect(values, from, to) {

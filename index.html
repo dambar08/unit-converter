@@ -11,7 +11,7 @@
     <script src="js/app.js" defer></script>
 </head>
 
-<body>
+<body data-gr-c-s-loaded="true">
     <h1>Unit Convertor</h1>
     <div class="main-container">
         <div class="container">
@@ -36,27 +36,40 @@
 
         <div class="sec-container mt-2">
             <div class="mini-container">
-                <input type="number">
+                <input type="number" value="1">
                 <select name="" id="from">
-                    <!-- <option value="Arcminute">Arcminute</option>
-                        "Arcsecond",
-                        "Cycles",
-                        "Degrees",
-                        "Gradians",
-                        "Microarcsecond",
-                        "Microradian",
-                        "Milliarcsecond",
-                        "Milliradian",
-                        "Radians",
-                        "Revolution", -->
+                    <option value="arcminute">Arcminute</option>
+                    <option value="arcsecond">Arcsecond</option>
+                    <option value="cycles">Cycles</option>
+                    <option value="degrees" selected>Degrees</option>
+                    <option value="gradians">Gradians</option>
+                    <option value="microarcsecond">Microarcsecond</option>
+                    <option value="microradian">Microradian</option>
+                    <option value="milliarcsecond">Milliarcsecond</option>
+                    <option value="milliradian">Milliradian</option>
+                    <option value="radians">Radians</option>
+                    <option value="microradian">Revolution</option>
                 </select>
             </div>
+            
             <div class="mini-container">
                 =
             </div>
             <div class="mini-container">
                 <input type="number">
-                <select name="" id="to"></select>
+                <select name="" id="to">
+                    <option value="arcminute">Arcminute</option>
+                    <option value="arcsecond">Arcsecond</option>
+                    <option value="cycles">Cycles</option>
+                    <option value="degrees">Degrees</option>
+                    <option value="gradians">Gradians</option>
+                    <option value="microarcsecond">Microarcsecond</option>
+                    <option value="microradian">Microradian</option>
+                    <option value="milliarcsecond">Milliarcsecond</option>
+                    <option value="milliradian">Milliradian</option>
+                    <option value="radians" selected>Radians</option>
+                    <option value="microradian">Revolution</option>
+                </select>
             </div>
         </div>
 
