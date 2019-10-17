@@ -16,39 +16,13 @@
     <div class="main-container">
         <div class="container">
             <select id="unit-picker">
-                <option value="angle">Angle</option>
-                <option value="area">Area</option>
-                <option value="data_transfer_rate">Data Transfer Rate</option>
-                <option value="digital_storage">Digital Storage</option>
-                <option value="duration">Duration</option>
-                <option value="energy">Energy</option>
-                <option value="force">Force</option>
-                <option value="frequency">Frequency</option>
-                <option value="length">Length</option>
-                <option value="mass">Mass</option>
-                <option value="power">Power</option>
-                <option value="pressure">Pressure</option>
-                <option value="speed">Speed</option>
-                <option value="temperature">Temperature</option>
-                <option value="volume">Volume</option>
             </select>
         </div>
 
         <div class="sec-container mt-2">
             <div class="mini-container">
-                <input type="number" value="1">
-                <select name="" id="from">
-                    <option value="arcminute">Arcminute</option>
-                    <option value="arcsecond">Arcsecond</option>
-                    <option value="cycles">Cycles</option>
-                    <option value="degrees" selected>Degrees</option>
-                    <option value="gradians">Gradians</option>
-                    <option value="microarcsecond">Microarcsecond</option>
-                    <option value="microradian">Microradian</option>
-                    <option value="milliarcsecond">Milliarcsecond</option>
-                    <option value="milliradian">Milliradian</option>
-                    <option value="radians">Radians</option>
-                    <option value="microradian">Revolution</option>
+                <input type="number" id="from-number">
+                <select class="sub-units" id="from">
                 </select>
             </div>
             
@@ -56,19 +30,9 @@
                 =
             </div>
             <div class="mini-container">
-                <input type="number">
-                <select name="" id="to">
-                    <option value="arcminute">Arcminute</option>
-                    <option value="arcsecond">Arcsecond</option>
-                    <option value="cycles">Cycles</option>
-                    <option value="degrees">Degrees</option>
-                    <option value="gradians">Gradians</option>
-                    <option value="microarcsecond">Microarcsecond</option>
-                    <option value="microradian">Microradian</option>
-                    <option value="milliarcsecond">Milliarcsecond</option>
-                    <option value="milliradian">Milliradian</option>
-                    <option value="radians" selected>Radians</option>
-                    <option value="microradian">Revolution</option>
+                <input type="number" id="to-number">
+                <select class="sub-units" id="to">
+                    
                 </select>
             </div>
         </div>

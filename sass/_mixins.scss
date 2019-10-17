@@ -1,0 +1,7 @@
+@mixin appearance-none {
+    -ms-appearance: none;
+    -o-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}

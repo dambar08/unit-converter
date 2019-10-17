@@ -41,6 +41,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .main-container .sec-container .mini-container {
@@ -51,19 +54,45 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.main-container .sec-container .mini-container input {
+.main-container .sec-container .mini-container input[type="number"] {
   border: 0;
   background-color: #323232;
   color: #eeeeee;
   font-weight: 900;
   height: 60px;
+  text-align: center;
   border-radius: 5px 5px 0 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.main-container .sec-container .mini-container input[type="number"]::inner-spin-button {
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: none;
+}
+
+.main-container .sec-container .mini-container input[type="number"]::outer-spin-button {
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: none;
 }
 
 .main-container .sec-container .mini-container select {
   border-radius: 0 0px 5px 5px;
+  text-align: center;
 }
 
 select {
