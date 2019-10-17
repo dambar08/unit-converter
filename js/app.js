@@ -786,12 +786,6 @@ function convert(from, to, value) {
     }
 }
 
-"Feet per second",
-"Kilometres per hour",
-"Knot",
-"Metres per second",
-"Miles per hour"
-
 //TODO
 function arcminuteToArcsecond(arcminute) {
     return arcminute * 60;
@@ -1659,29 +1653,73 @@ function getVolumeOptions() {
     ];
 }
 
-function celsiusToKelvin(temperature) {
-    return temperature + 273.15;
+
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 1.8) + 32;
 }
 
-function kelvinToCelsius(temperature) {
-    return temperature - 273.15;
+function celsiusToKelvin(celsius) {
+    return celsius + 273.15;
 }
 
-function celsiusToFahrenheit(temperature) {
-    return (temperature * 1.8) + 32;
+function celsiusToRankine(celsius) {
+    return (celsius * 1.8) + 491.67;
 }
 
-function fahrenheitToCelsius(temperature) {
-    return (temperature / 1.8) - 32;
+function fahrenheitToCelsius(fahrenheit) {
+    return (fahrenheit / 1.8) - 32;
 }
 
-function celsiusToRankine(temperature) {
-    return (temperature * 1.8) + 491.67;
+function fahrenheitToKelvin(fahrenheit) {
+    return (fahrenheit + 459.67) * 5 / 9;
 }
 
-function rankineToCelsius(temperature) {
+function fahrenheitToRankine(fahrenheit) {
+    return fahrenheit + 459.67;
+}
+
+function kelvinToCelsius(kelvin) {
+    return kelvin - 273.15;
+}
+
+function kelvinToFahrenheit(kelvin) {
+    return kelvin * 9 / 5 - 459.67
+}
+
+function kelvinToRankine(kelvin) {
+    return kelvin * 1.8;
+}
+
+function rankineToCelsius(rankine) {
     return (temperature / 1.8) - 491.67;
 }
+
+function rankineToFahrenheit(rankine) {
+    return rankine - 459.67;
+}
+
+function rankineToKelvin(rankine) {
+    return rankine / 1.8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function wattToHp(power) {
     return power * 0.001341022;
