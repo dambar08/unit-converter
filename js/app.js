@@ -783,6 +783,46 @@ function convert(from, to, value) {
         } else {
             return value;
         }
+    } else if (from === "celsius") {
+        if (to === "fahrenheit") {
+            return celsiusToFahrenheit(value);
+        } else if (to === "kelvin") {
+            return celsiusToKelvin(value);
+        } else if (to === "rankine") {
+            return celsiusToRankine(value);
+        } else {
+            return value;
+        }
+    } else if (from === "fahrenheit") {
+        if (to === "celsius") {
+            return fahrenheitToCelsius(value);
+        } else if (to === "kelvin") {
+            return fahrenheitToKelvin(value);
+        } else if (to === "rankine") {
+            return fahrenheitToRankine(value);
+        } else {
+            return value;
+        }
+    } else if (from === "kelvin") {
+        if (to === "celsius") {
+            return kelvinToCelsius(value);
+        } else if (to === "fahrenheit") {
+            return kelvinToFahrenheit(value);
+        } else if (to === "rankine") {
+            return kelvinToRankine(value);
+        } else {
+            return value;
+        }
+    } else if (from === "rankine") {
+        if (to === "celsius") {
+            return rankineToCelsius(value);
+        } else if (to === "fahrenheit") {
+            return rankineToFahrenheit(value);
+        } else if (to === "kelvin") {
+            return rankineToKelvin(value);
+        } else {
+            return value;
+        }
     }
 }
 
