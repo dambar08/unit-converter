@@ -561,21 +561,161 @@ function convert(from, to, value) {
         } else if (to === "gigabytepersecond") {
             return mebibitToGigabyte(value);
         } else if (to === "kibibitpersecond") {
-            return kilobyteToKibibit(value);
+            return mebibitToKibibit(value);
         } else if (to === "kilobitpersecond") {
-            return kilobyteToKibibit(value);
-        } else if (to === "mebibitpersecond") {
-            return kilobyteToMebibit(value);
+            return mebibitToKilobit(value);
+        } else if (to === "kilobytepersecond") {
+            return mebibitToKilobyte(value);
         } else if (to === "megabitpersecond") {
-            return kilobitToMegabit(value);
+            return mebibitToMegabit(value);
         } else if (to === "megabytepersecond") {
-            return kilobitToMegabyte(value);
+            return mebibitToMegabyte(value);
         } else if (to === "tebibitpersecond") {
-            return kilobitToTebibit(value);
+            return mebibitToTebibit(value);
         } else if (to === "terabitpersecond") {
-            return kilobitToTerabit(value);
+            return mebibitToTerabit(value);
         } else if (to === "terabytepersecond") {
-            return kilobitToTerabyte(value);
+            return mebibitToTerabyte(value);
+        } else {
+            return value;
+        }
+    } else if (from === "megabitpersecond") {
+        if (to === "bitspersecond") {
+            return megabitToBit(value);
+        } else if (to === "gibibitpersecond") {
+            return megabitToGibibit(value);
+        } else if (to === "gigabitpersecond") {
+            return megabitToGigabit(value);
+        } else if (to === "gigabytepersecond") {
+            return megabitToGigabyte(value);
+        } else if (to === "kibibitpersecond") {
+            return megabitToKibibit(value);
+        } else if (to === "kilobitpersecond") {
+            return megabitToKilobit(value);
+        } else if (to === "kilobytepersecond") {
+            return megabitToKilobyte(value);
+        } else if (to === "mebibitpersecond") {
+            return megabitToMebibit(value);
+        } else if (to === "megabytepersecond") {
+            return megabitToMegabyte(value);
+        } else if (to === "tebibitpersecond") {
+            return megabitToTebibit(value);
+        } else if (to === "terabitpersecond") {
+            return megabitToTerabit(value);
+        } else if (to === "terabytepersecond") {
+            return megabitToTerabyte(value);
+        } else {
+            return value;
+        }
+    } else if (from === "megabytepersecond") {
+        if (to === "bitspersecond") {
+            return megabyteToBit(value);
+        } else if (to === "gibibitpersecond") {
+            return megabyteToGibibit(value);
+        } else if (to === "gigabitpersecond") {
+            return megabyteToGigabit(value);
+        } else if (to === "gigabytepersecond") {
+            return megabyteToGigabyte(value);
+        } else if (to === "kibibitpersecond") {
+            return megabyteToKibibit(value);
+        } else if (to === "kilobitpersecond") {
+            return megabyteToKilobit(value);
+        } else if (to === "kilobytepersecond") {
+            return megabyteToKilobyte(value);
+        } else if (to === "mebibitpersecond") {
+            return megabyteToMebibit(value);
+        } else if (to === "megabitpersecond") {
+            return megabyteToMegabit(value);
+        } else if (to === "tebibitpersecond") {
+            return megabyteToBit(value);
+        } else if (to === "terabitpersecond") {
+            return megabyteToTerabit(value);
+        } else if (to === "terabytepersecond") {
+            return megabyteToTerabyte(value);
+        } else {
+            return value;
+        }
+    }else if (from === "tebibitpersecond") {
+        if (to === "bitspersecond") {
+            return tebibitToBit(value);
+        } else if (to === "gibibitpersecond") {
+            return tebibitToGibibit(value);
+        } else if (to === "gigabitpersecond") {
+            return tebibitToGigabit(value);
+        } else if (to === "gigabytepersecond") {
+            return tebibitToGigabyte(value);
+        } else if (to === "kibibitpersecond") {
+            return tebibitToKibibit(value);
+        } else if (to === "kilobitpersecond") {
+            return tebibitToKilobit(value);
+        } else if (to === "kilobytepersecond") {
+            return tebibitToKilobyte(value);
+        } else if (to === "mebibitpersecond") {
+            return tebibitToMebibit(value);
+        } else if (to === "megabitpersecond") {
+            return tebibitToMegabit(value);
+        } else if (to === "megabytepersecond") {
+            return tebibitToMegabyte(value);
+        } else if (to === "terabitpersecond") {
+            return tebibitToTerabit(value);
+        } else if (to === "terabytepersecond") {
+            return tebibitToTerabyte(value);
+        } else {
+            return value;
+        }
+    }else if (from === "terabitpersecond") {
+        if (to === "bitspersecond") {
+            return terabitToBit(value);
+        } else if (to === "gibibitpersecond") {
+            return terabitToGibibit(value);
+        } else if (to === "gigabitpersecond") {
+            return terabitToGigabit(value);
+        } else if (to === "gigabytepersecond") {
+            return terabitToGigabyte(value);
+        } else if (to === "kibibitpersecond") {
+            return terabitToKibibit(value);
+        } else if (to === "kilobitpersecond") {
+            return terabitToKilobit(value);
+        } else if (to === "kilobytepersecond") {
+            return terabitToKilobyte(value);
+        } else if (to === "mebibitpersecond") {
+            return terabitToMebibit(value);
+        } else if (to === "megabitpersecond") {
+            return terabitToMegabit(value);
+        } else if (to === "megabytepersecond") {
+            return terabitToMegabyte(value);
+        } else if (to === "tebibitpersecond") {
+            return terabitToTebibit(value);
+        } else if (to === "terabytepersecond") {
+            return terabitToTerabyte(value);
+        } else {
+            return value;
+        }
+    }else if (from === "terabytepersecond") {
+        if (to === "bitspersecond") {
+            return terabyteToBit(value);
+        } else if (to === "gibibitpersecond") {
+            return terabyteToGibibit(value);
+        } else if (to === "gigabitpersecond") {
+            return terabyteToGigabit(value);
+        } else if (to === "gigabytepersecond") {
+            return terabyteToGigabyte(value);
+        } else if (to === "kibibitpersecond") {
+            return terabyteToKibibit(value);
+        } else if (to === "kilobitpersecond") {
+            return terabyteToKilobit(value);
+        } else if (to === "kilobytepersecond") {
+            return terabyteToMegabyte(value);
+        } else if (to === "mebibitpersecond") {
+            return terabyteToMebibit(value);
+        } else if (to === "megabitpersecond") {
+            return terabyteToMegabit(value);
+        } else if (to === "megabytepersecond") {
+            return terabyteToMegabyte(value);
+        } else if (to === "tebibitpersecond") {
+            return terabyteToBit(value);
+        } else if (to === "terabitpersecond") {
+            return terabyteToTerabit(value);
         } else {
             return value;
         }
