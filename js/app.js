@@ -823,6 +823,150 @@ function convert(from, to, value) {
         } else {
             return value;
         }
+    } else if (from === "exawatt") {
+        if (to === "gigawatt") {
+            return exawattToGigawatt(value);
+        } else if (to === "hp") {
+            return exawattToHp(value);
+        } else if (to === "kilowatt") {
+            return exawattToKilowatt(value);
+        } else if (to === "megawatt") {
+            return exawattToMegawatt(value);
+        } else if (to === "petawatt") {
+            return exawattToPetawatt(value);
+        } else if (to === "terawatt") {
+            return exawattToTerawatt(value);
+        } else if (to === "watt") {
+            return exawattToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "gigawatt") {
+        if (to === "exawatt") {
+            return gigawattToExawatt(value);
+        } else if (to === "hp") {
+            return gigawattToHp(value);
+        } else if (to === "kilowatt") {
+            return gigawattToKilowatt(value);
+        } else if (to === "megawatt") {
+            return gigawattToMegawatt(value);
+        } else if (to === "petawatt") {
+            return gigawattToPetawatt(value);
+        } else if (to === "terawatt") {
+            return gigawattToTerawatt(value);
+        } else if (to === "watt") {
+            return gigawattToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "hp") {
+        if (to === "exawatt") {
+            return hpToExawatt(value);
+        } else if (to === "gigawatt") {
+            return hpToGigawatt(value);
+        } else if (to === "kilowatt") {
+            return hpToKilowatt(value);
+        } else if (to === "megawatt") {
+            return hpToMegawatt(value);
+        } else if (to === "petawatt") {
+            return hpToPetawatt(value);
+        } else if (to === "terawatt") {
+            return hpToTerawatt(value);
+        } else if (to === "watt") {
+            return hpToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "kilowatt") {
+        if (to === "exawatt") {
+            return kilowattToExawatt(value);
+        } else if (to === "gigawatt") {
+            return kilowattToGigawatt(value);
+        } else if (to === "hp") {
+            return kilowattToHp(value);
+        } else if (to === "megawatt") {
+            return kilowattToMegawatt(value);
+        } else if (to === "petawatt") {
+            return kilowattToPetawatt(value);
+        } else if (to === "terawatt") {
+            return kilowattToTerawatt(value);
+        } else if (to === "watt") {
+            return kilowattToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "megawatt") {
+        if (to === "exawatt") {
+            return megawattToExawatt(value);
+        } else if (to === "gigawatt") {
+            return megawattToGigawatt(value);
+        } else if (to === "hp") {
+            return megawattToHp(value);
+        } else if (to === "kilowatt") {
+            return megawattToKilowatt(value);
+        } else if (to === "petawatt") {
+            return megawattToPetawatt(value);
+        } else if (to === "terawatt") {
+            return megawattToTerawatt(value);
+        } else if (to === "watt") {
+            return megawattToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "petawatt") {
+        if (to === "exawatt") {
+            return petawattToExawatt(value);
+        } else if (to === "gigawatt") {
+            return petawattToGigawatt(value);
+        } else if (to === "hp") {
+            return petawattToHp(value);
+        } else if (to === "kilowatt") {
+            return petawattToKilowatt(value);
+        } else if (to === "megawatt") {
+            return petawattToMegawatt(value);
+        } else if (to === "terawatt") {
+            return petawattToTerawatt(value);
+        } else if (to === "watt") {
+            return petawattToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "terawatt") {
+        if (to === "exawatt") {
+            return terawattToExawatt(value);
+        } else if (to === "gigawatt") {
+            return terawattToGigawatt(value);
+        } else if (to === "hp") {
+            return terawattToHp(value);
+        } else if (to === "kilowatt") {
+            return terawattToKilowatt(value);
+        } else if (to === "megawatt") {
+            return terawattToMegawatt(value);
+        } else if (to === "petawatt") {
+            return terawattToPetawatt(value);
+        } else if (to === "watt") {
+            return terawattToWatt(value);
+        } else {
+            return value;
+        }
+    } else if (from === "watt") {
+        if (to === "exawatt") {
+            return wattToExawatt(value);
+        } else if (to === "gigawatt") {
+            return wattToGigawatt(value);
+        } else if (to === "hp") {
+            return wattToHp(value);
+        } else if (to === "kilowatt") {
+            return wattToKilowatt(value);
+        } else if (to === "megawatt") {
+            return wattToMegawatt(value);
+        } else if (to === "petawatt") {
+            return wattToPetawatt(value);
+        } else if (to === "terawatt") {
+            return wattToTerawatt(value);
+        } else {
+            return value;
+        }
     }
 }
 
@@ -1694,53 +1838,7 @@ function getVolumeOptions() {
 }
 
 
-function celsiusToFahrenheit(celsius) {
-    return (celsius * 1.8) + 32;
-}
 
-function celsiusToKelvin(celsius) {
-    return celsius + 273.15;
-}
-
-function celsiusToRankine(celsius) {
-    return (celsius * 1.8) + 491.67;
-}
-
-function fahrenheitToCelsius(fahrenheit) {
-    return (fahrenheit / 1.8) - 32;
-}
-
-function fahrenheitToKelvin(fahrenheit) {
-    return (fahrenheit + 459.67) * 5 / 9;
-}
-
-function fahrenheitToRankine(fahrenheit) {
-    return fahrenheit + 459.67;
-}
-
-function kelvinToCelsius(kelvin) {
-    return kelvin - 273.15;
-}
-
-function kelvinToFahrenheit(kelvin) {
-    return kelvin * 9 / 5 - 459.67
-}
-
-function kelvinToRankine(kelvin) {
-    return kelvin * 1.8;
-}
-
-function rankineToCelsius(rankine) {
-    return (temperature / 1.8) - 491.67;
-}
-
-function rankineToFahrenheit(rankine) {
-    return rankine - 459.67;
-}
-
-function rankineToKelvin(rankine) {
-    return rankine / 1.8;
-}
 
 
 
@@ -2474,6 +2572,235 @@ function terabyteToTerabit(terabyte) {
 
 
 
+function exawattToGigawatt(exawatt) {
+    return exawatt * 1000000000;
+}
+
+function exawattToHp(exawatt) {
+    return exawatt * 1341022000000000;
+}
+
+function exawattToKilowatt(exawatt) {
+    return exawatt * 1000000000000000;
+}
+
+function exawattToMegawatt(exawatt) {
+    return exawatt * 1000000000000;
+}
+
+function exawattToPetawatt(exawatt) {
+    return exawatt * 1000;
+}
+
+function exawattToTerawatt(exawatt) {
+    return exawatt * 1000000;
+}
+
+function exawattToWatt(exawatt) {
+    return exawatt * 1000000000000000000;
+}
+
+
+
+function gigawattToExawatt(gigawatt) {
+    return gigawatt * 0.000000001;
+}
+
+function gigawattToHp(gigawatt) {
+    return gigawatt * 1341022;
+}
+
+function gigawattToKilowatt(gigawatt) {
+    return gigawatt * 1000000;
+}
+
+function gigawattToMegawatt(gigawatt) {
+    return gigawatt * 1000;
+}
+
+function gigawattToPetawatt(gigawatt) {
+    return gigawatt * 0.000001;
+}
+
+function gigawattToTerawatt(gigawatt) {
+    return gigawatt * 0.001;
+}
+
+function gigawattToWatt(gigawatt) {
+    return gigawatt * 1000000000;
+}
+
+
+function hpToExawatt(hp) {
+    return hp * 0.0000000000000007456999;
+}
+
+function hpToGigawatt(hp) {
+    return hp * 0.0000007456999;
+}
+
+function hpToKilowatt(hp) {
+    return hp * 0.7456999000000027;
+}
+
+function hpToMegawatt(hp) {
+    return hp * 0.0007456999;
+}
+
+function hpToPetawatt(hp) {
+    return hp * 0.0000000000007456999;
+}
+
+function hpToTerawatt(hp) {
+    return hp * 0.0000000007456999;
+}
+
+function hpToWatt(hp) {
+    return hp * 745.6999;
+}
+
+function kilowattToExawatt(kilowatt) {
+    return kilowatt / 1000000000000000;
+}
+
+function kilowattToGigawatt(kilowatt) {
+    return kilowatt / 1000000;
+}
+
+function kilowattToHp(kilowatt) {
+    return kilowatt * 1.341022;
+}
+
+function kilowattToMegawatt(kilowatt) {
+    return kilowatt / 1000;
+}
+
+function kilowattToPetawatt(kilowatt) {
+    return kilowatt / 1000000000000;
+
+}
+
+function kilowattToTerawatt(kilowatt) {
+    return kilowatt / 1000000000;
+}
+
+function kilowattToWatt(kilowatt) {
+    return kilowatt * 1000;
+}
+
+
+function megawattToExawatt(megawatt) {
+    return megawatt / 1000000000000;
+}
+
+function megawattToGigawatt(megawatt) {
+    return megawatt / 1000;
+}
+
+function megawattToHp(megawatt) {
+    return megawatt * 1341.022;
+}
+
+function megawattToKilowatt(megawatt) {
+    return megawatt * 1000;
+}
+
+function megawattToPetawatt(megawatt) {
+    return megawatt / 1000000000;
+}
+
+function megawattToTerawatt(megawatt) {
+    return megawatt / 1000000;
+}
+
+function megawattToWatt(megawatt) {
+    return megawatt * 1000000;
+}
+
+function petawattToExawatt(petawatt) {
+    return petawatt / 1000;
+}
+
+function petawattToGigawatt(petawatt) {
+    return petawatt * 1000000;
+}
+
+function petawattToHp(petawatt) {
+    return petawatt * 1341022000000;
+}
+
+function petawattToKilowatt(petawatt) {
+    return petawatt * 1000000000000;
+}
+
+function petawattToMegawatt(petawatt) {
+    return petawatt * 1000000000;
+}
+
+function petawattToTerawatt(petawatt) {
+    return petawatt * 1000;
+}
+
+function petawattToWatt(petawatt) {
+    return petawatt * 1000000000000000;
+}
+
+function terawattToExawatt(terawatt) {
+    return terawatt / 1000000;
+}
+
+function terawattToGigawatt(terawatt) {
+    return terawatt * 1000;
+}
+
+function terawattToHp(terawatt) {
+    return terawatt * 1341022000;
+}
+
+function terawattToKilowatt(terawatt) {
+    return terawatt * 1000000000;
+}
+
+function terawattToMegawatt(terawatt) {
+    return terawatt * 1000000;
+}
+
+function terawattToPetawatt(terawatt) {
+    return terawatt / 1000;
+}
+
+function terawattToWatt(terawatt) {
+    return terawatt * 1000000000000;
+}
+
+function wattToExawatt(watt) {
+    return watt / 1000000000000000000;
+}
+
+function wattToGigawatt(watt) {
+    return watt / 1000000000;
+}
+
+function wattToHp(watt) {
+    return watt / 745.6999;
+}
+
+function wattToKilowatt(watt) {
+    return watt / 1000;
+}
+
+function wattToMegawatt(watt) {
+    return watt / 1000000;
+}
+
+function wattToPetawatt(watt) {
+    return watt / 1000000000000000;
+}
+
+function wattToTerawatt(watt) {
+    return watt / 1000000000000;
+}
+
 
 
 
@@ -2584,4 +2911,83 @@ function mileperhourToMetrepersecond(mile) {
 
 function mileperhourToKilometreperhour(mile) {
     return mile * 1.609344;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 1.8) + 32;
+}
+
+function celsiusToKelvin(celsius) {
+    return celsius + 273.15;
+}
+
+function celsiusToRankine(celsius) {
+    return (celsius * 1.8) + 491.67;
+}
+
+function fahrenheitToCelsius(fahrenheit) {
+    return (fahrenheit / 1.8) - 32;
+}
+
+function fahrenheitToKelvin(fahrenheit) {
+    return (fahrenheit + 459.67) * 5 / 9;
+}
+
+function fahrenheitToRankine(fahrenheit) {
+    return fahrenheit + 459.67;
+}
+
+function kelvinToCelsius(kelvin) {
+    return kelvin - 273.15;
+}
+
+function kelvinToFahrenheit(kelvin) {
+    return kelvin * 9 / 5 - 459.67
+}
+
+function kelvinToRankine(kelvin) {
+    return kelvin * 1.8;
+}
+
+function rankineToCelsius(rankine) {
+    return (temperature / 1.8) - 491.67;
+}
+
+function rankineToFahrenheit(rankine) {
+    return rankine - 459.67;
+}
+
+function rankineToKelvin(rankine) {
+    return rankine / 1.8;
 }
