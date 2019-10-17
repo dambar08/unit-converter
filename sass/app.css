@@ -72,26 +72,14 @@ body {
           appearance: none;
 }
 
-.main-container .sec-container .mini-container input[type="number"]::inner-spin-button {
-  -ms-appearance: none;
-  -o-appearance: none;
+.main-container .sec-container .mini-container input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: none;
-}
-
-.main-container .sec-container .mini-container input[type="number"]::outer-spin-button {
-  -ms-appearance: none;
-  -o-appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+          appearance: none;
   margin: none;
 }
 
 .main-container .sec-container .mini-container select {
-  border-radius: 0 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px;
   text-align: center;
 }
 

@@ -155,13 +155,17 @@ $(window).on("load", function () {
 
 $(document).ready(function () {
     $("#from-number").on("keyup paste", function () {
-        console.log($("select#from option:selected").val());
-        console.log($("select#to option:selected").val());
+        const from = $("select#from option:selected").val();
+        const to = $("select#to option:selected").val();
+        const value = $("input[type=number]#from-number").val();
+        $("#to-number").val(convert(from, to, value));
     });
 
     $("#to-number").on("keyup paste", function () {
-        console.log($("select#from option:selected").val());
-        console.log($("select#to option:selected").val());
+        const from = $("select#to option:selected").val();
+        const to = $("select#from option:selected").val()
+        const value = $("input[type=number]#to-number").val();
+        $("#from-number").val(convert(from, to, value));
     });
 
     $(".sub-units#from").on("change", function () {
@@ -635,7 +639,7 @@ function convert(from, to, value) {
         } else {
             return value;
         }
-    }else if (from === "tebibitpersecond") {
+    } else if (from === "tebibitpersecond") {
         if (to === "bitspersecond") {
             return tebibitToBit(value);
         } else if (to === "gibibitpersecond") {
@@ -663,7 +667,7 @@ function convert(from, to, value) {
         } else {
             return value;
         }
-    }else if (from === "terabitpersecond") {
+    } else if (from === "terabitpersecond") {
         if (to === "bitspersecond") {
             return terabitToBit(value);
         } else if (to === "gibibitpersecond") {
@@ -691,7 +695,7 @@ function convert(from, to, value) {
         } else {
             return value;
         }
-    }else if (from === "terabytepersecond") {
+    } else if (from === "terabytepersecond") {
         if (to === "bitspersecond") {
             return terabyteToBit(value);
         } else if (to === "gibibitpersecond") {
@@ -719,936 +723,1001 @@ function convert(from, to, value) {
         } else {
             return value;
         }
-    }
+    } else if (from === "feetpersecond") {
+        if (to === "kilometresperhour") {
+            return feetpersecondToKilometreperhour(value);
+        } else if (to === "knot") {
+            return feetpersecondToKnot(value);
+        } else if (to === "metrespersecond") {
+            return feetpersecondToMetrepersecond(value);
+        } else if (to === "milesperhour") {
+            return feetpersecondToMileperhour(value);
+        } else {
+            return value;
+        }
+    } else if (from === "kilometresperhour") {
+        if (to === "feetpersecond") {
+            return kilometreperhourToFeetpersecond(value);
+        } else if (to === "knot") {
+            return kilometreperhourToKnot(value);
+        } else if (to === "metrespersecond") {
+            return kilometreperhourToMetrepersecond(value);
+        } else if (to === "milesperhour") {
+            return kilometreperhourToMileperhour(value);
+        } else {
+            return value;
+        }
+    } else if (from === "knot") {
+        if (to === "feetpersecond") {
+            return knotToFeetpersecond(value);
+        } else if (to === "kilometresperhour") {
+            return knotToKilometreperhour(value);
+        } else if (to === "metrespersecond") {
+            return knotToMetrepersecond(value);
+        } else if (to === "milesperhour") {
+            return knotToMileperhour(value);
+        } else {
+            return value;
+        }
+    } else if (from === "metrespersecond") {
+        if (to === "feetpersecond") {
+            return metrepersecondToFeetpersecond(value);
+        } else if (to === "kilometresperhour") {
+            return metrepersecondToKilometreperhour(value);
+        } else if (to === "knot") {
+            return metrepersecondToKnot(value);
+        } else if (to === "milesperhour") {
+            return metrepersecondToMileperhour(value);
+        } else {
+            return value;
+        }
+    } else if (from === "milesperhour") {
+        if (to === "feetpersecond") {
+            return mileperhourToFeetpersecond(value);
+        } else if (to === "kilometresperhour") {
+            return mileperhourToKilometreperhour(value);
+        } else if (to === "knot") {
+            return mileperhourToKnot(value);
+        } else if (to === "metrespersecond") {
+            return mileperhourToMetrepersecond(value);
+        } else {
+            return value;
+        }
+    }
+}
+
+"Feet per second",
+"Kilometres per hour",
+"Knot",
+"Metres per second",
+"Miles per hour"
+
+//TODO
+function arcminuteToArcsecond(arcminute) {
+    return arcminute * 60;
+}
+
+//TODO
+function arcminuteToCycle(arcminute) {
+    return arcminute * 0.0000462963;
+}
+
+//TODO
+function arcminuteToDegree(arcminute) {
+    return arcminute * 0.01666667;
+}
+
+//TODO
+function arcminuteToGradian(arcminute) {
+    return arcminute * 0.01851852;
+}
+
+//TODO
+function arcminuteToMicroarcsecond(arcminute) {
+    return arcminute * 60001690;
+}
+
+//TODO
+function arcminuteToMicroradian(arcminute) {
+    return arcminute * 290.8882;
+}
+
+//TODO
+function arcminuteToMilliarcsecond(arcminute) {
+    return arcminute * 60001.69;
+}
 
-    //TODO
-    function arcminuteToArcsecond(arcminute) {
-        return arcminute * 60;
-    }
+//TODO
+function arcminuteToMilliradian(arcminute) {
+    return arcminute * 0.2908882;
+}
 
-    //TODO
-    function arcminuteToCycle(arcminute) {
-        return arcminute * 0.0000462963;
-    }
+//TODO
+function arcminuteToRadian(arcminute) {
+    return arcminute * 0.0002908882;
+}
+//TODO
+function arcminuteToRevolution(arcminute) {
+    return arcminute * 0.00004629619;
+}
 
-    //TODO
-    function arcminuteToDegree(arcminute) {
-        return arcminute * 0.01666667;
-    }
+//TODO
+function arcsecondToArcminute(arcsecond) {
+    return arcsecond / 60;
+}
 
-    //TODO
-    function arcminuteToGradian(arcminute) {
-        return arcminute * 0.01851852;
-    }
+//TODO
+function arcsecondToArcminute(arcsecond) {
 
-    //TODO
-    function arcminuteToMicroarcsecond(arcminute) {
-        return arcminute * 60001690;
-    }
+}
 
-    //TODO
-    function arcminuteToMicroradian(arcminute) {
-        return arcminute * 290.8882;
-    }
+//TODO
+function arcsecondToCycle(arcsecond) {
 
-    //TODO
-    function arcminuteToMilliarcsecond(arcminute) {
-        return arcminute * 60001.69;
-    }
+}
 
-    //TODO
-    function arcminuteToMilliradian(arcminute) {
-        return arcminute * 0.2908882;
-    }
+//TODO
+function arcsecondToDegree(arcsecond) {
 
-    //TODO
-    function arcminuteToRadian(arcminute) {
-        return arcminute * 0.0002908882;
-    }
-    //TODO
-    function arcminuteToRevolution(arcminute) {
-        return arcminute * 0.00004629619;
-    }
+}
 
-    //TODO
-    function arcsecondToArcminute(arcsecond) {
-        return arcsecond / 60;
-    }
+//TODO
+function arcsecondToGradian(arcsecond) {
 
-    //TODO
-    function arcsecondToArcminute(arcsecond) {
+}
 
-    }
+//TODO
+function arcsecondToMicroarcsecond(arcsecond) {
 
-    //TODO
-    function arcsecondToCycle(arcsecond) {
+}
 
-    }
 
-    //TODO
-    function arcsecondToDegree(arcsecond) {
+//TODO
+function arcsecondToMicroradian(arcsecond) {
 
-    }
+}
 
-    //TODO
-    function arcsecondToGradian(arcsecond) {
 
-    }
+//TODO
+function arcsecondToMilliarcsecond(arcsecond) {
 
-    //TODO
-    function arcsecondToMicroarcsecond(arcsecond) {
+}
 
-    }
 
+//TODO
+function arcsecondToMilliradian(arcsecond) {
 
-    //TODO
-    function arcsecondToMicroradian(arcsecond) {
+}
 
-    }
+//TODO
+function arcsecondToRadian(arcsecond) {
 
+}
 
-    //TODO
-    function arcsecondToMilliarcsecond(arcsecond) {
+//TODO
+function arcsecondToRevolution(arcsecond) {
 
-    }
+}
 
+//TODO
+function cycleToArcminute(cycle) {
 
-    //TODO
-    function arcsecondToMilliradian(arcsecond) {
+}
 
-    }
+//TODO
+function cycleToArcsecond(cycle) {
 
-    //TODO
-    function arcsecondToRadian(arcsecond) {
+}
 
-    }
+//TODO
+function cycleToCycle(cycle) {
 
-    //TODO
-    function arcsecondToRevolution(arcsecond) {
+}
 
-    }
+//TODO
+function cycleToDegree(cycle) {
 
-    //TODO
-    function cycleToArcminute(cycle) {
+}
 
-    }
+//TODO
+function cycleToGradian(cycle) {
 
-    //TODO
-    function cycleToArcsecond(cycle) {
+}
 
-    }
+//TODO
+function cycleToMicroarsecond(cycle) {
 
-    //TODO
-    function cycleToCycle(cycle) {
+}
 
-    }
+//TODO
+function cycleToMicroradian(cycle) {
 
-    //TODO
-    function cycleToDegree(cycle) {
+}
 
-    }
+//TODO
+function cycleToRadian(cycle) {
 
-    //TODO
-    function cycleToGradian(cycle) {
+}
 
-    }
+//TODO
+function cycleToRevolution(cycle) {
 
-    //TODO
-    function cycleToMicroarsecond(cycle) {
+}
 
-    }
+//TODO
+function degreeToArcminute(degree) {
 
-    //TODO
-    function cycleToMicroradian(cycle) {
+}
 
-    }
+//TODO
+function degreeToArcsecond(degree) {
 
-    //TODO
-    function cycleToRadian(cycle) {
+}
 
-    }
+//TODO
+function degreeToCycle(degree) {
 
-    //TODO
-    function cycleToRevolution(cycle) {
+}
 
-    }
+//TODO
+function degreeToGradian(degree) {
 
-    //TODO
-    function degreeToArcminute(degree) {
+}
 
-    }
+//TODO
+function degreeToMicroarcsecond(degree) {
 
-    //TODO
-    function degreeToArcsecond(degree) {
+}
 
-    }
+//TODO
+function degreeToMicroradian(degree) {
 
-    //TODO
-    function degreeToCycle(degree) {
+}
 
-    }
+//TODO
+function degreeToMilliarcsecond(degree) {
 
-    //TODO
-    function degreeToGradian(degree) {
+}
 
-    }
+//TODO
+function degreeToMilliradian(degree) {
 
-    //TODO
-    function degreeToMicroarcsecond(degree) {
+}
 
-    }
+//TODO
+function degreeToRadian(degree) {
 
-    //TODO
-    function degreeToMicroradian(degree) {
+}
 
-    }
+//TODO
+function degreeToRevolution(degree) {
 
-    //TODO
-    function degreeToMilliarcsecond(degree) {
+}
 
-    }
+//TODO
+function gradianToArcminute(gradian) {
 
-    //TODO
-    function degreeToMilliradian(degree) {
+}
 
-    }
+//TODO
+function gradianToArcsecond(gradian) {
 
-    //TODO
-    function degreeToRadian(degree) {
+}
 
-    }
+//TODO
+function gradianToCycle(gradian) {
 
-    //TODO
-    function degreeToRevolution(degree) {
+}
 
-    }
+//TODO
+function gradianToDegree(gradian) {
 
-    //TODO
-    function gradianToArcminute(gradian) {
+}
 
-    }
+//TODO
+function gradianToMicroarcsecond(gradian) {
 
-    //TODO
-    function gradianToArcsecond(gradian) {
+}
 
-    }
+//TODO
+function gradianToMicroradian(gradian) {
 
-    //TODO
-    function gradianToCycle(gradian) {
+}
 
-    }
+//TODO
+function gradianToMilliarcsecond(gradian) {
 
-    //TODO
-    function gradianToDegree(gradian) {
+}
 
-    }
+//TODO
+function gradianToMilliradian(gradian) {
 
-    //TODO
-    function gradianToMicroarcsecond(gradian) {
+}
 
-    }
+//TODO
+function gradianToRadian(gradian) {
 
-    //TODO
-    function gradianToMicroradian(gradian) {
+}
 
-    }
+//TODO
+function gradianToRevolution(gradian) {
 
-    //TODO
-    function gradianToMilliarcsecond(gradian) {
+}
 
-    }
+//TODO
+function microarcsecondToArcminute(microarcsecond) {
 
-    //TODO
-    function gradianToMilliradian(gradian) {
+}
 
-    }
+//TODO
+function microarcsecondToArcsecond(microarcsecond) {
 
-    //TODO
-    function gradianToRadian(gradian) {
+}
 
-    }
+//TODO
+function microarcsecondToCycle(microarcsecond) {
 
-    //TODO
-    function gradianToRevolution(gradian) {
+}
 
-    }
+//TODO
+function microarcsecondToDegree(microarcsecond) {
 
-    //TODO
-    function microarcsecondToArcminute(microarcsecond) {
+}
 
-    }
+//TODO
+function microarcsecondToGradian(microarcsecond) {
 
-    //TODO
-    function microarcsecondToArcsecond(microarcsecond) {
+}
 
-    }
+//TODO
+function microarcsecondToMicroradian(microarcsecond) {
 
-    //TODO
-    function microarcsecondToCycle(microarcsecond) {
+}
 
-    }
+//TODO
+function microarcsecondToMilliarcsecond(microarcsecond) {
 
-    //TODO
-    function microarcsecondToDegree(microarcsecond) {
+}
 
-    }
+//TODO
+function microarcsecondToMilliradian(microarcsecond) {
 
-    //TODO
-    function microarcsecondToGradian(microarcsecond) {
+}
 
-    }
+//TODO
+function microarcsecondToRadian(microarcsecond) {
 
-    //TODO
-    function microarcsecondToMicroradian(microarcsecond) {
+}
 
-    }
+//TODO
+function microarcsecondToRevolution(microarcsecond) {
 
-    //TODO
-    function microarcsecondToMilliarcsecond(microarcsecond) {
+}
 
-    }
+//TODO
+function microradianToArcminute(microradian) {
 
-    //TODO
-    function microarcsecondToMilliradian(microarcsecond) {
+}
 
-    }
+//TODO
+function microradianToArcsecond(microradian) {
 
-    //TODO
-    function microarcsecondToRadian(microarcsecond) {
+}
 
-    }
+//TODO
+function microradianToCycle(microradian) {
 
-    //TODO
-    function microarcsecondToRevolution(microarcsecond) {
+}
 
-    }
+//TODO
+function microradianToDegree(microradian) {
 
-    //TODO
-    function microradianToArcminute(microradian) {
+}
 
-    }
+//TODO
+function microradianToGradian(microradian) {
 
-    //TODO
-    function microradianToArcsecond(microradian) {
+}
 
-    }
+//TODO
+function microradianToMicroarcsecond(microradian) {
 
-    //TODO
-    function microradianToCycle(microradian) {
+}
 
-    }
+//TODO
+function microradianToMilliarcsecond(microradian) {
 
-    //TODO
-    function microradianToDegree(microradian) {
+}
 
-    }
+//TODO
+function microradianToMilliradian(microradian) {
 
-    //TODO
-    function microradianToGradian(microradian) {
+}
 
-    }
+//TODO
+function microradianToRadian(microradian) {
 
-    //TODO
-    function microradianToMicroarcsecond(microradian) {
+}
 
-    }
+//TODO
+function microradianToRevolution(microradian) {
 
-    //TODO
-    function microradianToMilliarcsecond(microradian) {
+}
+//TODO
+function milliarcsecondToArcminute(milliarcsecond) {
 
-    }
+}
 
-    //TODO
-    function microradianToMilliradian(microradian) {
+//TODO
+function milliarcsecondToArcsecond(milliarcsecond) {
 
-    }
+}
 
-    //TODO
-    function microradianToRadian(microradian) {
+//TODO
+function milliarcsecondToCycle(milliarcsecond) {
 
-    }
+}
 
-    //TODO
-    function microradianToRevolution(microradian) {
+//TODO
+function milliarcsecondToDegree(milliarcsecond) {
 
-    }
-    //TODO
-    function milliarcsecondToArcminute(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliarcsecondToGradian(milliarcsecond) {
 
-    //TODO
-    function milliarcsecondToArcsecond(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliarcsecondToMicroradian(milliarcsecond) {
 
-    //TODO
-    function milliarcsecondToCycle(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliarcsecondToMilliarcsecond(milliarcsecond) {
 
-    //TODO
-    function milliarcsecondToDegree(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliarcsecondToMilliradian(milliarcsecond) {
 
-    //TODO
-    function milliarcsecondToGradian(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliarcsecondToRadian(milliarcsecond) {
 
-    //TODO
-    function milliarcsecondToMicroradian(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliarcsecondToRevolution(milliarcsecond) {
 
-    //TODO
-    function milliarcsecondToMilliarcsecond(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliradianToArcminute(milliradian) {
 
-    //TODO
-    function milliarcsecondToMilliradian(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliradianToArcsecond(milliradian) {
 
-    //TODO
-    function milliarcsecondToRadian(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliradianToCycle(milliradian) {
 
-    //TODO
-    function milliarcsecondToRevolution(milliarcsecond) {
+}
 
-    }
+//TODO
+function milliradianToDegree(milliradian) {
 
-    //TODO
-    function milliradianToArcminute(milliradian) {
+}
 
-    }
+//TODO
+function milliradianToGradian(milliradian) {
 
-    //TODO
-    function milliradianToArcsecond(milliradian) {
+}
 
-    }
+//TODO
+function milliradianToMicroradian(milliradian) {
 
-    //TODO
-    function milliradianToCycle(milliradian) {
+}
 
-    }
+//TODO
+function milliradianToMilliarcsecond(milliradian) {
 
-    //TODO
-    function milliradianToDegree(milliradian) {
+}
 
-    }
+//TODO
+function milliradianToMilliarcsecond(milliradian) {
 
-    //TODO
-    function milliradianToGradian(milliradian) {
+}
 
-    }
+//TODO
+function milliradianToRadian(milliradian) {
 
-    //TODO
-    function milliradianToMicroradian(milliradian) {
+}
 
-    }
+//TODO
+function milliradianToRevolution(milliradian) {
 
-    //TODO
-    function milliradianToMilliarcsecond(milliradian) {
+}
 
-    }
+//TODO
+function radianToArcminute(radian) {
 
-    //TODO
-    function milliradianToMilliarcsecond(milliradian) {
+}
 
-    }
+//TODO
+function radianToArcsecond(radian) {
 
-    //TODO
-    function milliradianToRadian(milliradian) {
+}
 
-    }
+//TODO
+function radianToCycle(radian) {
 
-    //TODO
-    function milliradianToRevolution(milliradian) {
+}
 
-    }
+//TODO
+function radianToDegree(radian) {
 
-    //TODO
-    function radianToArcminute(radian) {
+}
 
-    }
+//TODO
+function radianToGradian(radian) {
 
-    //TODO
-    function radianToArcsecond(radian) {
+}
 
-    }
+//TODO
+function radianToMicroarcsecond(radian) {
 
-    //TODO
-    function radianToCycle(radian) {
+}
 
-    }
+//TODO
+function radianToMicroradian(radian) {
 
-    //TODO
-    function radianToDegree(radian) {
+}
 
-    }
+//TODO
+function radianToMilliradian(radian) {
 
-    //TODO
-    function radianToGradian(radian) {
+}
 
-    }
+//TODO
+function radianToRevolution(radian) {
 
-    //TODO
-    function radianToMicroarcsecond(radian) {
+}
 
-    }
+//TODO
+function revolutionToArcminute(revolution) {
 
-    //TODO
-    function radianToMicroradian(radian) {
+}
 
-    }
+//TODO
+function revolutionToArcsecond(revolution) {
 
-    //TODO
-    function radianToMilliradian(radian) {
+}
 
-    }
+//TODO
+function revolutionToCycle(revolution) {
 
-    //TODO
-    function radianToRevolution(radian) {
+}
 
-    }
+//TODO
+function revolutionToDegree(revolution) {
 
-    //TODO
-    function revolutionToArcminute(revolution) {
+}
 
-    }
+//TODO
+function revolutionToGradian(revolution) {
 
-    //TODO
-    function revolutionToArcsecond(revolution) {
+}
 
-    }
+//TODO
+function revolutionToMicrorevolution(revolution) {
 
-    //TODO
-    function revolutionToCycle(revolution) {
+}
 
-    }
+//TODO
+function revolutionToMilliarcsecond(revolution) {
 
-    //TODO
-    function revolutionToDegree(revolution) {
+}
 
-    }
+//TODO
+function revolutionToMilliradian(revolution) {
 
-    //TODO
-    function revolutionToGradian(revolution) {
+}
 
-    }
+//TODO
+function revolutionToMilliradian(revolution) {
 
-    //TODO
-    function revolutionToMicrorevolution(revolution) {
+}
 
-    }
+//TODO
+function revolutionToRadian(revolution) {
 
-    //TODO
-    function revolutionToMilliarcsecond(revolution) {
+}
 
-    }
 
-    //TODO
-    function revolutionToMilliradian(revolution) {
+function degreeToRadian(degree) {
+    return degree * 0.01745329;
+}
 
-    }
+function getAngleOptions() {
+    return [
+        "Arcminute",
+        "Arcsecond",
+        "Cycles",
+        "Degrees",
+        "Gradians",
+        "Microarcsecond",
+        "Microradian",
+        "Milliarcsecond",
+        "Milliradian",
+        "Radians",
+        "Revolution",
+    ];
+}
 
-    //TODO
-    function revolutionToMilliradian(revolution) {
+function getAreaOptions() {
+    return [
+        "Acre",
+        "Are",
+        "Barn",
+        "Hectare",
+        "Rood",
+        "Square Centimeter",
+        "Square Decimeter",
+        "Square Feet",
+        "Square Inch",
+        "Square Meter",
+        "Square Mile",
+        "Square Millimeter",
+        "Square Rod",
+        "Square Yard",
+    ];
+}
 
-    }
+function getDataTransferRateOptions() {
+    return [
+        "Bits per second",
+        "Gibibit per second",
+        "Gigabit per second",
+        "Gigabyte per second",
+        "Kibibit per second",
+        "Kilobit per second",
+        "Kilobyte per second",
+        "Mebibit per second",
+        "Megabit per second",
+        "Megabyte per second",
+        "Tebibit per second",
+        "Terabit per second",
+        "Terabyte per second",
+    ];
+}
 
-    //TODO
-    function revolutionToRadian(revolution) {
+function getDigitalStorageOptions() {
+    return [
+        "Bit",
+        "Byte",
+        "Gibibit",
+        "Gibibyte",
+        "Gigabit",
+        "Gigabyte",
+        "Kibibit",
+        "Kibibyte",
+        "Kilobit",
+        "Kilobyte",
+        "Mebibit",
+        "Mebibyte",
+        "Migabit",
+        "Migabyte",
+        "Pebibit",
+        "Pebibyte",
+        "Petabyte",
+        "Tebibit",
+        "Tebibyte",
+        "Teaabit",
+        "Terabyte",
+    ];
+}
 
-    }
+function getDurationOptions() {
+    return [
+        "Century",
+        "Days",
+        "Decade",
+        "Femtosecond",
+        "Fortnight",
+        "Hours",
+        "Microseconds",
+        "Millennium",
+        "Milliseconds",
+        "Minutes",
+        "Months",
+        "Nanoseconds",
+        "Picoseconds",
+        "Seconds",
+        "Sidereal Year",
+        "Weeks",
+        "Years",
+    ];
+}
 
+function getEnergyOptions() {
+    return [
+        "Attoelectron volt",
+        "BTV",
+        "Centielectron volt",
+        "Decaelectron volt",
+        "Decielectron volt",
+        "Electron volt",
+        "Erg",
+        "Exaelectron volt",
+        "Femtoelectron volt",
+        "Foot Pound",
+        "Gigaelectron volt",
+        "Gramcalorie",
+        "Hectoelectron volt",
+        "Joule",
+        "Kiloelectron volt",
+        "Kilojoule",
+        "Megaelectron volt",
+        "Microelectron volt",
+        "Millielectron volt",
+        "Nanoelectron volt",
+        "Petaelectron volt",
+        "Picoelectron volt",
+        "Teraelectron volt",
+        "Watt Hour",
+        "Yoctoelectron volt",
+        "Yottaelectron volt",
+        "Zeptoelectron volt",
+        "Zettaelectron volt"
+    ];
+}
 
-    function degreeToRadian(degree) {
-        return degree * 0.01745329;
-    }
+function getForceOptions() {
+    return [
+        "Dyne",
+        "Gram Force",
+        "Kilo Newton",
+        "Kilogram Force",
+        "Kip",
+        "Newton",
+        "Ounce Force",
+        "Pound Force",
+        "Ton Force Metric"
+    ];
+}
 
-    function getAngleOptions() {
-        return [
-            "Arcminute",
-            "Arcsecond",
-            "Cycles",
-            "Degrees",
-            "Gradians",
-            "Microarcsecond",
-            "Microradian",
-            "Milliarcsecond",
-            "Milliradian",
-            "Radians",
-            "Revolution",
-        ];
-    }
+function getFrequencyOptions() {
+    return [
+        "Exahertz",
+        "Gigahertz",
+        "Hertz",
+        "Kilohertz",
+        "Megahertz",
+        "Microhertz",
+        "Millihertz",
+        "Petahertz",
+        "Terahertz",
+    ];
+}
 
-    function getAreaOptions() {
-        return [
-            "Acre",
-            "Are",
-            "Barn",
-            "Hectare",
-            "Rood",
-            "Square Centimeter",
-            "Square Decimeter",
-            "Square Feet",
-            "Square Inch",
-            "Square Meter",
-            "Square Mile",
-            "Square Millimeter",
-            "Square Rod",
-            "Square Yard",
-        ];
-    }
+function getLengthOptions() {
+    return [
+        "Angstrom",
+        "Astronomical unit",
+        "Centimeter",
+        "Chains",
+        "Decameter",
+        "Feet",
+        "Hectometer",
+        "Inch",
+        "Kilometer",
+        "Light year",
+        "Link",
+        "Micrometer",
+        "Mil",
+        "Mile",
+        "Millimeter",
+        "Nanometer",
+        "Nautical mile",
+        "Parsec",
+        "Picometer",
+        "Rod",
+        "Yard",
+    ];
+}
 
-    function getDataTransferRateOptions() {
-        return [
-            "Bits per second",
-            "Gibibit per second",
-            "Gigabit per second",
-            "Gigabyte per second",
-            "Kibibit per second",
-            "Kilobit per second",
-            "Kilobyte per second",
-            "Mebibit per second",
-            "Megabit per second",
-            "Megabyte per second",
-            "Tebibit per second",
-            "Terabit per second",
-            "Terabyte per second",
-        ];
-    }
+function getMassOptions() {
+    return [
+        "Atomic Mass Unit",
+        "Carat",
+        "Centigram",
+        "Decigram",
+        "Dekagram",
+        "Dram",
+        "Femtogram",
+        "French Quintal",
+        "Grain",
+        "Gram",
+        "Hectogram",
+        "Hundredweight",
+        "Kilogram",
+        "Long Ton",
+        "Megagram",
+        "Metric Quintal",
+        "Metric Ton",
+        "Microgram",
+        "Milligram",
+        "Ounce",
+        "Picogram",
+        "Pound",
+        "Short Ton",
+        "Slug",
+        "Stick",
+        "Stone",
+        "Tola",
+        "Ton",
+        "Troy Ounce",
+        "US Quintal"
+    ];
+}
 
-    function getDigitalStorageOptions() {
-        return [
-            "Bit",
-            "Byte",
-            "Gibibit",
-            "Gibibyte",
-            "Gigabit",
-            "Gigabyte",
-            "Kibibit",
-            "Kibibyte",
-            "Kilobit",
-            "Kilobyte",
-            "Mebibit",
-            "Mebibyte",
-            "Migabit",
-            "Migabyte",
-            "Pebibit",
-            "Pebibyte",
-            "Petabyte",
-            "Tebibit",
-            "Tebibyte",
-            "Teaabit",
-            "Terabyte",
-        ];
-    }
+function getPowerOptions() {
+    return [
+        "Exawatt",
+        "Gigawatt",
+        "HP",
+        "Kilowatt",
+        "Megawatt",
+        "Petawatt",
+        "Terawatt",
+        "Watt"
+    ];
+}
 
-    function getDurationOptions() {
-        return [
-            "Century",
-            "Days",
-            "Decade",
-            "Femtosecond",
-            "Fortnight",
-            "Hours",
-            "Microseconds",
-            "Millennium",
-            "Milliseconds",
-            "Minutes",
-            "Months",
-            "Nanoseconds",
-            "Picoseconds",
-            "Seconds",
-            "Sidereal Year",
-            "Weeks",
-            "Years",
-        ];
-    }
+function getPressureOptons() {
+    return [
+        "Atmosphere",
+        "Bars",
+        "Barye",
+        "Centibars",
+        "cmH2O",
+        "Gigabar",
+        "Gigapascal",
+        "Hectopascal",
+        "Kilobar",
+        "Kilopascal",
+        "Megabar",
+        "Megapascal",
+        "Minibar",
+        "Minipascal",
+        "mmH2O",
+        "mmHg",
+        "Pascal",
+        "PSI",
+        "Standard Atmosphere",
+        "Technical Atmosphere",
+        "Torr"
+    ];
+}
 
-    function getEnergyOptions() {
-        return [
-            "Attoelectron volt",
-            "BTV",
-            "Centielectron volt",
-            "Decaelectron volt",
-            "Decielectron volt",
-            "Electron volt",
-            "Erg",
-            "Exaelectron volt",
-            "Femtoelectron volt",
-            "Foot Pound",
-            "Gigaelectron volt",
-            "Gramcalorie",
-            "Hectoelectron volt",
-            "Joule",
-            "Kiloelectron volt",
-            "Kilojoule",
-            "Megaelectron volt",
-            "Microelectron volt",
-            "Millielectron volt",
-            "Nanoelectron volt",
-            "Petaelectron volt",
-            "Picoelectron volt",
-            "Teraelectron volt",
-            "Watt Hour",
-            "Yoctoelectron volt",
-            "Yottaelectron volt",
-            "Zeptoelectron volt",
-            "Zettaelectron volt"
-        ];
-    }
+function getSpeedOptions() {
+    return [
+        "Feet per second",
+        "Kilometres per hour",
+        "Knot",
+        "Metres per second",
+        "Miles per hour"
+    ];
+}
 
-    function getForceOptions() {
-        return [
-            "Dyne",
-            "Gram Force",
-            "Kilo Newton",
-            "Kilogram Force",
-            "Kip",
-            "Newton",
-            "Ounce Force",
-            "Pound Force",
-            "Ton Force Metric"
-        ];
-    }
+function getTemperatureOptions() {
+    return [
+        "Celsius",
+        "Fahrenheit",
+        "Kelvin",
+        "Rankine"
+    ]
+}
 
-    function getFrequencyOptions() {
-        return [
-            "Exahertz",
-            "Gigahertz",
-            "Hertz",
-            "Kilohertz",
-            "Megahertz",
-            "Microhertz",
-            "Millihertz",
-            "Petahertz",
-            "Terahertz",
-        ];
-    }
+function getVolumeOptions() {
+    return [
+        "Beerbarrel",
+        "Centilitre",
+        "Cubic centimeter",
+        "Cubic Foot",
+        "Cubic Inch",
+        "Cubic Yard",
+        "Cup (Imperial)",
+        "Cup (US Legal)",
+        "Decalitre",
+        "Decilitre",
+        "Drop",
+        "Fluid Dram",
+        "Fluid Ounce (Imperial)",
+        "Fluid Ounce (US)",
+        "Gallon (Imperial)",
+        "Gallon (US)",
+        "Gill",
+        "Hectolitre",
+        "Hogshead",
+        "Litre",
+        "Millilitre",
+        "Minim",
+        "Oilbarrel",
+        "Pint (US)",
+        "Quart (Imperial)",
+        "Quart (US)",
+        "Tablespoon (Imperial)",
+        "Tablespoon (US)",
+        "Teaspoon (Imperial)",
+        "Teaspoon (US)",
+    ];
+}
 
-    function getLengthOptions() {
-        return [
-            "Angstrom",
-            "Astronomical unit",
-            "Centimeter",
-            "Chains",
-            "Decameter",
-            "Feet",
-            "Hectometer",
-            "Inch",
-            "Kilometer",
-            "Light year",
-            "Link",
-            "Micrometer",
-            "Mil",
-            "Mile",
-            "Millimeter",
-            "Nanometer",
-            "Nautical mile",
-            "Parsec",
-            "Picometer",
-            "Rod",
-            "Yard",
-        ];
-    }
+function celsiusToKelvin(temperature) {
+    return temperature + 273.15;
+}
 
-    function getMassOptions() {
-        return [
-            "Atomic Mass Unit",
-            "Carat",
-            "Centigram",
-            "Decigram",
-            "Dekagram",
-            "Dram",
-            "Femtogram",
-            "French Quintal",
-            "Grain",
-            "Gram",
-            "Hectogram",
-            "Hundredweight",
-            "Kilogram",
-            "Long Ton",
-            "Megagram",
-            "Metric Quintal",
-            "Metric Ton",
-            "Microgram",
-            "Milligram",
-            "Ounce",
-            "Picogram",
-            "Pound",
-            "Short Ton",
-            "Slug",
-            "Stick",
-            "Stone",
-            "Tola",
-            "Ton",
-            "Troy Ounce",
-            "US Quintal"
-        ];
-    }
+function kelvinToCelsius(temperature) {
+    return temperature - 273.15;
+}
 
-    function getPowerOptions() {
-        return [
-            "Exawatt",
-            "Gigawatt",
-            "HP",
-            "Kilowatt",
-            "Megawatt",
-            "Petawatt",
-            "Terawatt",
-            "Watt"
-        ];
-    }
+function celsiusToFahrenheit(temperature) {
+    return (temperature * 1.8) + 32;
+}
 
-    function getPressureOptons() {
-        return [
-            "Atmosphere",
-            "Bars",
-            "Barye",
-            "Centibars",
-            "cmH2O",
-            "Gigabar",
-            "Gigapascal",
-            "Hectopascal",
-            "Kilobar",
-            "Kilopascal",
-            "Megabar",
-            "Megapascal",
-            "Minibar",
-            "Minipascal",
-            "mmH2O",
-            "mmHg",
-            "Pascal",
-            "PSI",
-            "Standard Atmosphere",
-            "Technical Atmosphere",
-            "Torr"
-        ];
-    }
+function fahrenheitToCelsius(temperature) {
+    return (temperature / 1.8) - 32;
+}
 
-    function getSpeedOptions() {
-        return [
-            "Feet per second",
-            "Kilometres per hour",
-            "Knot",
-            "Metres per second",
-            "Miles per hour"
-        ];
-    }
+function celsiusToRankine(temperature) {
+    return (temperature * 1.8) + 491.67;
+}
 
-    function getTemperatureOptions() {
-        return [
-            "Celsius",
-            "Fahrenheit",
-            "Kelvin",
-            "Rankine"
-        ]
-    }
+function rankineToCelsius(temperature) {
+    return (temperature / 1.8) - 491.67;
+}
 
-    function getVolumeOptions() {
-        return [
-            "Beerbarrel",
-            "Centilitre",
-            "Cubic centimeter",
-            "Cubic Foot",
-            "Cubic Inch",
-            "Cubic Yard",
-            "Cup (Imperial)",
-            "Cup (US Legal)",
-            "Decalitre",
-            "Decilitre",
-            "Drop",
-            "Fluid Dram",
-            "Fluid Ounce (Imperial)",
-            "Fluid Ounce (US)",
-            "Gallon (Imperial)",
-            "Gallon (US)",
-            "Gill",
-            "Hectolitre",
-            "Hogshead",
-            "Litre",
-            "Millilitre",
-            "Minim",
-            "Oilbarrel",
-            "Pint (US)",
-            "Quart (Imperial)",
-            "Quart (US)",
-            "Tablespoon (Imperial)",
-            "Tablespoon (US)",
-            "Teaspoon (Imperial)",
-            "Teaspoon (US)",
-        ];
-    }
+function wattToHp(power) {
+    return power * 0.001341022;
+}
 
-    function celsiusToKelvin(temperature) {
-        return temperature + 273.15;
-    }
+function wattToExawatt(power) {
+    return power * 0.000000000000000001;
+}
 
-    function kelvinToCelsius(temperature) {
-        return temperature - 273.15;
-    }
+function wattToGigawatt(power) {
+    return power * 0.000000001;
+}
 
-    function celsiusToFahrenheit(temperature) {
-        return (temperature * 1.8) + 32;
-    }
+function wattToKilowatt(power) {
+    return power * 0.001;
+}
 
-    function fahrenheitToCelsius(temperature) {
-        return (temperature / 1.8) - 32;
-    }
+function wattToMegawatt(power) {
+    return power * 0.000001;
+}
 
-    function celsiusToRankine(temperature) {
-        return (temperature * 1.8) + 491.67;
-    }
+function wattToPetawatt(power) {
+    return power * 0.000000000000001;
+}
 
-    function rankineToCelsius(temperature) {
-        return (temperature / 1.8) - 491.67;
-    }
+function wattToTerawatt(power) {
+    return power * 0.000000000001;
+}
 
 
-    "Exawatt",
-    "Gigawatt",
-    "HP",
-    "Kilowatt",
-    "Megawatt",
-    "Petawatt",
-    "Terawatt",
-    "Watt"
-
-    function wattToHp(power) {
-        return power * 0.001341022;
-    }
 
-    function wattToExawatt(power) {
-        return power * 0.000000000000000001;
-    }
 
-    function wattToGigawatt(power) {
-        return power * 0.000000001;
-    }
 
-    function wattToKilowatt(power) {
-        return power * 0.001;
-    }
 
-    function wattToMegawatt(power) {
-        return power * 0.000001;
-    }
 
-    function wattToPetawatt(power) {
-        return power * 0.000000000000001;
-    }
 
-    function wattToTerawatt(power) {
-        return power * 0.000000000001;
-    }
 
 
 
@@ -1673,653 +1742,768 @@ function convert(from, to, value) {
 
 
 
+function bitToGibibit(bit) {
+    return bit / 1073742000;
+}
 
+function bitToGigabit(bit) {
+    return bit / 1000000000;
+}
 
+function bitToGigabyte(bit) {
+    return bit / 8000000000;
+}
 
+function bitToKibibit(bit) {
+    return bit / 1024;
+}
 
+function bitToKilobit(bit) {
+    return bit / 1000;
+}
 
+function bitToKilobyte(bit) {
+    return bit / 8000;
+}
 
+function bitToMebibit(bit) {
+    return bit / 1048576;
+}
 
+function bitToMegabit(bit) {
+    return bit / 1000000;
+}
 
-    function bitToGibibit(bit) {
-        return bit / 1073742000;
-    }
+function bitToMegabyte(bit) {
+    return bit / 8000000;
+}
 
-    function bitToGigabit(bit) {
-        return bit / 1000000000;
-    }
+function bitToTebibit(bit) {
+    return bit / 1099512000000;
+}
 
-    function bitToGigabyte(bit) {
-        return bit / 8000000000;
-    }
+function bitToTerabit(bit) {
+    return bit / 1000000000000;
+}
 
-    function bitToKibibit(bit) {
-        return bit / 1024;
-    }
+function bitToTerabyte(bit) {
+    return bit / 8000000000000;
+}
 
-    function bitToKilobit(bit) {
-        return bit / 1000;
-    }
+///////////////////////////////
 
-    function bitToKilobyte(bit) {
-        return bit / 8000;
-    }
+function gibibitToBit(gibibit) {
+    return gibibit * 1073742000;
+}
 
-    function bitToMebibit(bit) {
-        return bit / 1048576;
-    }
+function gibibitToGigabit(gibibit) {
+    return bitToGibibit(gibibitToBit(gibibit));
+}
 
-    function bitToMegabit(bit) {
-        return bit / 1000000;
-    }
+function gibibitToGigabyte(gibibit) {
+    return bitToGigabyte(gibibitToBit(gibibit));
+}
 
-    function bitToMegabyte(bit) {
-        return bit / 8000000;
-    }
+function gibibitToKibibit(gibibit) {
+    return bitToKibibit(gibibitToBit(gibibit));
+}
 
-    function bitToTebibit(bit) {
-        return bit / 1099512000000;
-    }
+function gibibitToKilobit(gibibit) {
+    return bitToKilobit(gibibitToBit(gibibit));
+}
 
-    function bitToTerabit(bit) {
-        return bit / 1000000000000;
-    }
+function gibibitToKilobyte(gibibit) {
+    return bitToKilobyte(gibibitToBit(gibibit));
+}
 
-    function bitToTerabyte(bit) {
-        return bit / 8000000000000;
-    }
+function gibibitToMebibit(gibibit) {
+    return bitToMebibit(gibibitToBit(gibibit));
+}
 
-    ///////////////////////////////
+function gibibitToMegabit(gibibit) {
+    return bitToMegabit(gibibitToBit(gibibit));
+}
 
-    function gibibitToBit(gibibit) {
-        return gibibit * 1073742000;
-    }
+function gibibitToMegabyte(gibibit) {
+    return bitToMegabyte(gibibitToBit(gibibit));
+}
 
-    function gibibitToGigabit(gibibit) {
-        return bitToGibibit(gibibitToBit(gibibit));
-    }
+function gibibitToTebibit(gibibit) {
+    return bitToTebibit(gibibitToBit(gibibit));
+}
 
-    function gibibitToGigabyte(gibibit) {
-        return bitToGigabyte(gibibitToBit(gibibit));
-    }
+function gibibitToTerabit(gibibit) {
+    return bitToTerabit(gibibitToBit(gibibit));
+}
 
-    function gibibitToKibibit(gibibit) {
-        return bitToKibibit(gibibitToBit(gibibit));
-    }
+function gibibitToTerabyte(gibibit) {
+    return bitToTerabyte(gibibitToBit(gibibit));
+}
 
-    function gibibitToKilobit(gibibit) {
-        return bitToKilobit(gibibitToBit(gibibit));
-    }
+/////////////////////////////////////////////////
 
-    function gibibitToKilobyte(gibibit) {
-        return bitToKilobyte(gibibitToBit(gibibit));
-    }
+function gigabitToBit(gigabit) {
+    return gigabit * 1000000000;
+}
 
-    function gibibitToMebibit(gibibit) {
-        return bitToMebibit(gibibitToBit(gibibit));
-    }
+function gigabitToGibibit(gigabit) {
+    return bitToGibibit(gigabitToBit(gigabit));
+}
 
-    function gibibitToMegabit(gibibit) {
-        return bitToMegabit(gibibitToBit(gibibit));
-    }
+function gigabitToGigabyte(gigabit) {
+    return bitToGigabyte(gigabitToBit(gigabit));
+}
 
-    function gibibitToMegabyte(gibibit) {
-        return bitToMegabyte(gibibitToBit(gibibit));
-    }
+function gigabitToKibibit(gigabit) {
+    return bitToKibibit(gigabitToBit(gigabit));
+}
 
-    function gibibitToTebibit(gibibit) {
-        return bitToTebibit(gibibitToBit(gibibit));
-    }
+function gigabitToKilobit(gigabit) {
+    return bitToKilobit(gigabitToBit(gigabit));
+}
 
-    function gibibitToTerabit(gibibit) {
-        return bitToTerabit(gibibitToBit(gibibit));
-    }
+function gigabitToKilobyte(gigabit) {
+    return bitToKilobyte(gigabitToBit(gigabit));
+}
 
-    function gibibitToTerabyte(gibibit) {
-        return bitToTerabyte(gibibitToBit(gibibit));
-    }
+function gigabitToMebibit(gigabit) {
+    return bitToMebibit(gigabitToBit(gigabit));
+}
 
-    /////////////////////////////////////////////////
+function gigabitToMegabit(gigabit) {
+    return bitToMegabit(gigabitToBit(gigabit));
+}
 
-    function gigabitToBit(gigabit) {
-        return gigabit * 1000000000;
-    }
+function gigabitToMegabyte(gigabit) {
+    return bitToMegabyte(gigabitToBit(gigabit));
+}
 
-    function gigabitToGibibit(gigabit) {
-        return bitToGibibit(gigabitToBit(gigabit));
-    }
+function gigabitToTebibit(gigabit) {
+    return bitToTebibit(gigabitToBit(gigabit));
+}
 
-    function gigabitToGigabyte(gigabit) {
-        return bitToGigabyte(gigabitToBit(gigabit));
-    }
+function gigabitToTerabit(gigabit) {
+    return bitToTerabit(gigabitToBit(gigabit));
+}
 
-    function gigabitToKibibit(gigabit) {
-        return bitToKibibit(gigabitToBit(gigabit));
-    }
+function gigabitToTerabyte(gigabit) {
+    return bitToTerabyte(gigabitToBit(gigabit));
+}
 
-    function gigabitToKilobit(gigabit) {
-        return bitToKilobit(gigabitToBit(gigabit));
-    }
+////////////////////////////////////////////////
 
-    function gigabitToKilobyte(gigabit) {
-        return bitToKilobyte(gigabitToBit(gigabit));
-    }
+function gigabyteToBit(gigabyte) {
+    return gigabyte * 8000000000;
+}
 
-    function gigabitToMebibit(gigabit) {
-        return bitToMebibit(gigabitToBit(gigabit));
-    }
+function gigabyteToGibibit(gigabyte) {
+    return bitToGibibit(gigabyteToBit(gigabyte));
+}
 
-    function gigabitToMegabit(gigabit) {
-        return bitToMegabit(gigabitToBit(gigabit));
-    }
+function gigabyteToGigabit(gigabyte) {
+    return bitToGigabit(gigabyteToBit(gigabyte));
+}
 
-    function gigabitToMegabyte(gigabit) {
-        return bitToMegabyte(gigabitToBit(gigabit));
-    }
+function gigabyteToKibibit(gigabyte) {
+    return bitToKibibit(gigabyteToBit(gigabyte));
+}
 
-    function gigabitToTebibit(gigabit) {
-        return bitToTebibit(gigabitToBit(gigabit));
-    }
+function gigabyteToKilobit(gigabyte) {
+    return bitToKilobit(gigabyteToBit(gigabyte));
+}
 
-    function gigabitToTerabit(gigabit) {
-        return bitToTerabit(gigabitToBit(gigabit));
-    }
+function gigabyteToKilobyte(gigabyte) {
+    return bitToKilobyte(gigabyteToBit(gigabyte));
+}
 
-    function gigabitToTerabyte(gigabit) {
-        return bitToTerabyte(gigabitToBit(gigabit));
-    }
+function gigabyteToMebibit(gigabyte) {
+    return bitToMebibit(gigabyteToBit(gigabyte));
+}
 
-    ////////////////////////////////////////////////
+function gigabyteToMegabit(gigabyte) {
+    return bitToMegabit(gigabyteToBit(gigabyte));
+}
 
-    function gigabyteToBit(gigabyte) {
-        return gigabyte * 8000000000;
-    }
+function gigabyteToMegabyte(gigabyte) {
+    return bitToMegabyte(gigabyteToBit(gigabyte));
+}
 
-    function gigabyteToGibibit(gigabyte) {
-        return bitToGibibit(gigabyteToBit(gigabyte));
-    }
+function gigabyteToTebibit(gigabyte) {
+    return bitToTebibit(gigabyteToBit(gigabyte));
+}
 
-    function gigabyteToGigabit(gigabyte) {
-        return bitToGigabit(gigabyteToBit(gigabyte));
-    }
+function gigabyteToTerabit(gigabyte) {
+    return bitToTerabit(gigabyteToBit(gigabyte));
+}
 
-    function gigabyteToKibibit(gigabyte) {
-        return bitToKibibit(gigabyteToBit(gigabyte));
-    }
+function gigabyteToTerabyte(gigabyte) {
+    return bitToTerabyte(gigabyteToBit(gigabyte));
+}
+///////////////////////////////////////////////////
+function kibibitToBit(kibibit) {
+    return kibibit * 1024;
+}
 
-    function gigabyteToKilobit(gigabyte) {
-        return bitToKilobit(gigabyteToBit(gigabyte));
-    }
+function kibibitToGibibit(kibibit) {
+    return bitToGibibit(kibibitToBit(kibibit));
+}
 
-    function gigabyteToKilobyte(gigabyte) {
-        return bitToKilobyte(gigabyteToBit(gigabyte));
-    }
+function kibibitToGigabit(kibibit) {
+    return bitToGigabit(kibibitToBit(kibibit));
+}
 
-    function gigabyteToMebibit(gigabyte) {
-        return bitToMebibit(gigabyteToBit(gigabyte));
-    }
+function kibibitToGigabyte(kibibit) {
+    return bitToGigabyte(kibibitToBit(kibibit));
+}
 
-    function gigabyteToMegabit(gigabyte) {
-        return bitToMegabit(gigabyteToBit(gigabyte));
-    }
+function kibibitToKilobit(kibibit) {
+    return bitToKilobit(kibibitToBit(kibibit));
+}
 
-    function gigabyteToMegabyte(gigabyte) {
-        return bitToMegabyte(gigabyteToBit(gigabyte));
-    }
+function kibibitToKilobyte(kibibit) {
+    return bitToKilobyte(kibibitToBit(kibibit));
+}
 
-    function gigabyteToTebibit(gigabyte) {
-        return bitToTebibit(gigabyteToBit(gigabyte));
-    }
+function kibibitToMebibit(kibibit) {
+    return bitToMebibit(kibibitToBit(kibibit));
+}
 
-    function gigabyteToTerabit(gigabyte) {
-        return bitToTerabit(gigabyteToBit(gigabyte));
-    }
+function kibibitToMegabit(kibibit) {
+    return bitToMegabit(kibibitToBit(kibibit));
+}
 
-    function gigabyteToTerabyte(gigabyte) {
-        return bitToTerabyte(gigabyteToBit(gigabyte));
-    }
-    ///////////////////////////////////////////////////
-    function kibibitToBit(kibibit) {
-        return kibibit * 1024;
-    }
+function kibibitToMegabyte(kibibit) {
+    return bitToMegabyte(kibibitToBit(kibibit));
+}
 
-    function kibibitToGibibit(kibibit) {
-        return bitToGibibit(kibibitToBit(kibibit));
-    }
+function kibibitToTebibit(kibibit) {
+    return bitToTebibit(kibibitToBit(kibibit));
+}
 
-    function kibibitToGigabit(kibibit) {
-        return bitToGigabit(kibibitToBit(kibibit));
-    }
+function kibibitToTerabit(kibibit) {
+    return bitToTerabit(kibibitToBit(kibibit));
+}
 
-    function kibibitToGigabyte(kibibit) {
-        return bitToGigabyte(kibibitToBit(kibibit));
-    }
+function kibibitToTerabyte(kibibit) {
+    return bitToTerabyte(kibibitToBit(kibibit));
+}
 
-    function kibibitToKilobit(kibibit) {
-        return bitToKilobit(kibibitToBit(kibibit));
-    }
+//////////////////////////////////////////////
 
-    function kibibitToKilobyte(kibibit) {
-        return bitToKilobyte(kibibitToBit(kibibit));
-    }
+function kilobitToBit(kilobit) {
+    return kilobit * 1000;
+}
 
-    function kibibitToMebibit(kibibit) {
-        return bitToMebibit(kibibitToBit(kibibit));
-    }
+function kilobitToGibibit(kilobit) {
+    return bitToGibibit(kilobitToBit(kilobit));
+}
 
-    function kibibitToMegabit(kibibit) {
-        return bitToMegabit(kibibitToBit(kibibit));
-    }
+function kilobitToGigabit(kilobit) {
+    return bitToGigabit(kilobitToBit(kilobit));
+}
 
-    function kibibitToMegabyte(kibibit) {
-        return bitToMegabyte(kibibitToBit(kibibit));
-    }
+function kilobitToGigabyte(kilobit) {
+    return bitToGigabyte(kilobitToBit(kilobit));
+}
 
-    function kibibitToTebibit(kibibit) {
-        return bitToTebibit(kibibitToBit(kibibit));
-    }
+function kilobitToKibibit(kilobit) {
+    return bitToKibibit(kilobitToBit(kilobit));
+}
 
-    function kibibitToTerabit(kibibit) {
-        return bitToTerabit(kibibitToBit(kibibit));
-    }
+function kilobitToKilobyte(kilobit) {
+    return bitToKilobyte(kilobitToBit(kilobit));
+}
 
-    function kibibitToTerabyte(kibibit) {
-        return bitToTerabyte(kibibitToBit(kibibit));
-    }
+function kilobitToMebibit(kilobit) {
+    return bitToMebibit(kilobitToBit(kilobit));
+}
 
-    //////////////////////////////////////////////
+function kilobitToMegabit(kilobit) {
+    return bitToMegabit(kilobitToBit(kilobit));
+}
 
-    function kilobitToBit(kilobit) {
-        return kilobit * 1000;
-    }
+function kilobitToMegabyte(kilobit) {
+    return bitToMegabyte(kilobitToBit(kilobit));
+}
 
-    function kilobitToGibibit(kilobit) {
-        return bitToGibibit(kilobitToBit(kilobit));
-    }
+function kilobitToTebibit(kilobit) {
+    return bitToTebibit(kilobitToBit(kilobit));
+}
 
-    function kilobitToGigabit(kilobit) {
-        return bitToGigabit(kilobitToBit(kilobit));
-    }
+function kilobitToTerabit(kilobit) {
+    return bitToTerabit(kilobitToBit(kilobit));
+}
 
-    function kilobitToGigabyte(kilobit) {
-        return bitToGigabyte(kilobitToBit(kilobit));
-    }
+function kilobitToTerabyte(kilobit) {
+    return bitToTerabyte(kilobitToBit(kilobit));
+}
 
-    function kilobitToKibibit(kilobit) {
-        return bitToKibibit(kilobitToBit(kilobit));
-    }
+/////////////////////////////////////////////
 
-    function kilobitToKilobyte(kilobit) {
-        return bitToKilobyte(kilobitToBit(kilobit));
-    }
+function kilobyteToBit(kilobyte) {
+    return kilobyte * 8000;
+}
 
-    function kilobitToMebibit(kilobit) {
-        return bitToMebibit(kilobitToBit(kilobit));
-    }
+function kilobyteToGibibit(kilobyte) {
+    return bitToGibibit(kilobyteToBit(kilobyte));
+}
 
-    function kilobitToMegabit(kilobit) {
-        return bitToMegabit(kilobitToBit(kilobit));
-    }
+function kilobyteToGigabit(kilobyte) {
+    return bitToGigabit(kilobyteToBit(kilobyte));
+}
 
-    function kilobitToMegabyte(kilobit) {
-        return bitToMegabyte(kilobitToBit(kilobit));
-    }
+function kilobyteToGigabyte(kilobyte) {
+    return bitToGigabyte(kilobyteToBit(kilobyte));
+}
 
-    function kilobitToTebibit(kilobit) {
-        return bitToTebibit(kilobitToBit(kilobit));
-    }
+function kilobyteToKibibit(kilobyte) {
+    return bitToKibibit(kilobyteToBit(kilobyte));
+}
 
-    function kilobitToTerabit(kilobit) {
-        return bitToTerabit(kilobitToBit(kilobit));
-    }
+function kilobyteToKilobit(kilobyte) {
+    return bitToKilobit(kilobyteToBit(kilobyte));
+}
 
-    function kilobitToTerabyte(kilobit) {
-        return bitToTerabyte(kilobitToBit(kilobit));
-    }
+function kilobyteToMebibit(kilobyte) {
+    return bitToMebibit(kilobyteToBit(kilobyte));
+}
 
-    /////////////////////////////////////////////
+function kilobyteToMegabit(kilobyte) {
+    return bitToMegabit(kilobyteToBit(kilobyte));
+}
 
-    function kilobyteToBit(kilobyte) {
-        return kilobyte * 8000;
-    }
+function kilobyteToMegabyte(kilobyte) {
+    return bitToMegabyte(kilobyteToBit(kilobyte));
+}
 
-    function kilobyteToGibibit(kilobyte) {
-        return bitToGibibit(kilobyteToBit(kilobyte));
-    }
+function kilobyteToTebibit(kilobyte) {
+    return bitToTebibit(kilobyteToBit(kilobyte));
+}
 
-    function kilobyteToGigabit(kilobyte) {
-        return bitToGigabit(kilobyteToBit(kilobyte));
-    }
+function kilobyteToTerabit(kilobyte) {
+    return bitToTerabit(kilobyteToBit(kilobyte));
+}
 
-    function kilobyteToGigabyte(kilobyte) {
-        return bitToGigabyte(kilobyteToBit(kilobyte));
-    }
+function kilobyteToTerabyte(kilobyte) {
+    return bitToTerabyte(kilobyteToBit(kilobyte));
+}
 
-    function kilobyteToKibibit(kilobyte) {
-        return bitToKibibit(kilobyteToBit(kilobyte));
-    }
+////////////////////////////////////////////////
 
-    function kilobyteToKilobit(kilobyte) {
-        return bitToKilobit(kilobyteToBit(kilobyte));
-    }
+function mebibitToBit(mebibit) {
+    return mebibit * 1048576;
+}
 
-    function kilobyteToMebibit(kilobyte) {
-        return bitToMebibit(kilobyteToBit(kilobyte));
-    }
+function mebibitToGibibit(mebibit) {
+    return bitToGibibit(mebibitToBit(mebibit));
+}
 
-    function kilobyteToMegabit(kilobyte) {
-        return bitToMegabit(kilobyteToBit(kilobyte));
-    }
+function mebibitToGigabit(mebibit) {
+    return bitToGigabit(mebibitToBit(mebibit));
+}
 
-    function kilobyteToMegabyte(kilobyte) {
-        return bitToMegabyte(kilobyteToBit(kilobyte));
-    }
+function mebibitToGigabyte(mebibit) {
+    return bitToGigabyte(mebibitToBit(mebibit));
+}
 
-    function kilobyteToTebibit(kilobyte) {
-        return bitToTebibit(kilobyteToBit(kilobyte));
-    }
+function mebibitToKibibit(mebibit) {
+    return bitToKibibit(mebibitToBit(mebibit));
+}
 
-    function kilobyteToTerabit(kilobyte) {
-        return bitToTerabit(kilobyteToBit(kilobyte));
-    }
+function mebibitToKilobit(mebibit) {
+    return bitToKilobit(mebibitToBit(mebibit));
+}
 
-    function kilobyteToTerabyte(kilobyte) {
-        return bitToTerabyte(kilobyteToBit(kilobyte));
-    }
+function mebibitToKilobyte(mebibit) {
+    return bitToKilobyte(mebibitToBit(mebibit));
+}
 
-    ////////////////////////////////////////////////
+function mebibitToMegabit(mebibit) {
+    return bitToMegabit(mebibitToBit(mebibit));
+}
 
-    function mebibitToBit(mebibit) {
-        return mebibit * 1048576;
-    }
+function mebibitToMegabyte(mebibit) {
+    return bitToMegabyte(mebibitToBit(mebibit));
+}
 
-    function mebibitToGibibit(mebibit) {
-        return bitToGibibit(mebibitToBit(mebibit));
-    }
+function mebibitToTebibit(mebibit) {
+    return bitToTebibit(mebibitToBit(mebibit));
+}
 
-    function mebibitToGigabit(mebibit) {
-        return bitToGigabit(mebibitToBit(mebibit));
-    }
+function mebibitToTerabit(mebibit) {
+    return bitToTerabit(mebibitToBit(mebibit));
+}
 
-    function mebibitToGigabyte(mebibit) {
-        return bitToGigabyte(mebibitToBit(mebibit));
-    }
+function mebibitToTerabyte(mebibit) {
+    return bitToTerabyte(mebibitToBit(mebibit));
+}
 
-    function mebibitToKibibit(mebibit) {
-        return bitToKibibit(mebibitToBit(mebibit));
-    }
+//////////////////////////////////////////////////
 
-    function mebibitToKilobit(mebibit) {
-        return bitToKilobit(mebibitToBit(mebibit));
-    }
+function megabitToBit(megabit) {
+    return megabit * 1000000;
+}
 
-    function mebibitToKilobyte(mebibit) {
-        return bitToKilobyte(mebibitToBit(mebibit));
-    }
+function megabitToGibibit(megabit) {
+    return bitToGibibit(megabitToBit(megabit));
+}
 
-    function mebibitToMegabit(mebibit) {
-        return bitToMegabit(mebibitToBit(mebibit));
-    }
+function megabitToGigabit(megabit) {
+    return bitToGigabit(megabitToBit(megabit));
+}
 
-    function mebibitToMegabyte(mebibit) {
-        return bitToMegabyte(mebibitToBit(mebibit));
-    }
+function megabitToGigabyte(megabit) {
+    return bitToGigabyte(megabitToBit(megabit));
+}
 
-    function mebibitToTebibit(mebibit) {
-        return bitToTebibit(mebibitToBit(mebibit));
-    }
+function megabitToKibibit(megabit) {
+    return bitToKibibit(megabitToBit(megabit));
+}
 
-    function mebibitToTerabit(mebibit) {
-        return bitToTerabit(mebibitToBit(mebibit));
-    }
+function megabitToKilobit(megabit) {
+    return bitToKilobit(megabitToBit(megabit));
+}
 
-    function mebibitToTerabyte(mebibit) {
-        return bitToTerabyte(mebibitToBit(mebibit));
-    }
+function megabitToKilobyte(megabit) {
+    return bitToKilobyte(megabitToBit(megabit));
+}
 
-    //////////////////////////////////////////////////
+function megabitToMebibit(megabit) {
+    return bitToMebibit(megabitToBit(megabit));
+}
 
-    function megabitToBit(megabit) {
-        return megabit * 1000000;
-    }
+function megabitToMegabyte(megabit) {
+    return bitToMegabyte(megabitToBit(megabit));
+}
 
-    function megabitToGibibit(megabit) {
-        return bitToGibibit(megabitToBit(megabit));
-    }
+function megabitToTebibit(megabit) {
+    return bitToTebibit(megabitToBit(megabit));
+}
 
-    function megabitToGigabit(megabit) {
-        return bitToGigabit(megabitToBit(megabit));
-    }
+function megabitToTerabit(megabit) {
+    return bitToTerabit(megabitToBit(megabit));
+}
 
-    function megabitToGigabyte(megabit) {
-        return bitToGigabyte(megabitToBit(megabit));
-    }
+function megabitToTerabyte(megabit) {
+    return bitToTerabyte(megabitToBit(megabit));
+}
+////////////////////////////////////////////////////
 
-    function megabitToKibibit(megabit) {
-        return bitToKibibit(megabitToBit(megabit));
-    }
+function megabyteToBit(megabyte) {
+    return megabyte * 8000000;
+}
 
-    function megabitToKilobit(megabit) {
-        return bitToKilobit(megabitToBit(megabit));
-    }
+function megabyteToGibibit(megabyte) {
+    return bitToGibibit(megabyteToBit(megabyte));
+}
 
-    function megabitToKilobyte(megabit) {
-        return bitToKilobyte(megabitToBit(megabit));
-    }
+function megabyteToGigabit(megabyte) {
+    return bitToGigabit(megabyteToBit(megabyte));
+}
 
-    function megabitToMebibit(megabit) {
-        return bitToMebibit(megabitToBit(megabit));
-    }
+function megabyteToGigabyte(megabyte) {
+    return bitToGigabyte(megabyteToBit(megabyte));
+}
 
-    function megabitToMegabyte(megabit) {
-        return bitToMegabyte(megabitToBit(megabit));
-    }
+function megabyteToKibibit(megabyte) {
+    return bitToKibibit(megabyteToBit(megabyte));
+}
 
-    function megabitToTebibit(megabit) {
-        return bitToTebibit(megabitToBit(megabit));
-    }
+function megabyteToKilobit(megabyte) {
+    return bitToKilobit(megabyteToBit(megabyte));
+}
 
-    function megabitToTerabit(megabit) {
-        return bitToTerabit(megabitToBit(megabit));
-    }
+function megabyteToKilobyte(megabyte) {
+    return bitToKilobyte(megabyteToBit(megabyte));
+}
 
-    function megabitToTerabyte(megabit) {
-        return bitToTerabyte(megabitToBit(megabit));
-    }
-    ////////////////////////////////////////////////////
+function megabyteToMebibit(megabyte) {
+    return bitToMebibit(megabyteToBit(megabyte));
+}
 
-    function megabyteToBit(megabyte) {
-        return megabyte * 8000000;
-    }
+function megabyteToMegabit(megabyte) {
+    return bitToMegabit(megabyteToBit(megabyte));
+}
 
-    function megabyteToGibibit(megabyte) {
-        return bitToGibibit(megabyteToBit(megabyte));
-    }
+function megabyteToTebibit(megabyte) {
+    return bitToTebibit(megabyteToBit(megabyte));
+}
 
-    function megabyteToGigabit(megabyte) {
-        return bitToGigabit(megabyteToBit(megabyte));
-    }
+function megabyteToTerabit(megabyte) {
+    return bitToTerabit(megabyteToBit(megabyte));
+}
 
-    function megabyteToGigabyte(megabyte) {
-        return bitToGigabyte(megabyteToBit(megabyte));
-    }
+function megabyteToTerabyte(megabyte) {
+    return bitToTerabyte(megabyteToBit(megabyte));
+}
+//////////////////////////////////////////////
 
-    function megabyteToKibibit(megabyte) {
-        return bitToKibibit(megabyteToBit(megabyte));
-    }
+function tebibitToBit(tebibit) {
+    return tebibit * 1099512000000;
+}
 
-    function megabyteToKilobit(megabyte) {
-        return bitToKilobit(megabyteToBit(megabyte));
-    }
+function tebibitToGibibit(tebibit) {
+    return bitToGibibit(tebibitToBit(tebibit));
+}
 
-    function megabyteToKilobyte(megabyte) {
-        return bitToKilobyte(megabyteToBit(megabyte));
-    }
+function tebibitToGigabit(tebibit) {
+    return bitToGigabit(tebibitToBit(tebibit));
+}
 
-    function megabyteToMebibit(megabyte) {
-        return bitToMebibit(megabyteToBit(megabyte));
-    }
+function tebibitToGigabyte(tebibit) {
+    return bitToGigabyte(tebibitToBit(tebibit));
+}
 
-    function megabyteToMegabit(megabyte) {
-        return bitToMegabit(megabyteToBit(megabyte));
-    }
+function tebibitToKibibit(tebibit) {
+    return bitToKibibit(tebibitToBit(tebibit));
+}
 
-    function megabyteToTebibit(megabyte) {
-        return bitToTebibit(megabyteToBit(megabyte));
-    }
+function tebibitToKilobit(tebibit) {
+    return bitToKilobit(tebibitToBit(tebibit));
+}
 
-    function megabyteToTerabit(megabyte) {
-        return bitToTerabit(megabyteToBit(megabyte));
-    }
+function tebibitToKilobyte(tebibit) {
+    return bitToKilobyte(tebibitToBit(tebibit));
+}
 
-    function megabyteToTerabyte(megabyte) {
-        return bitToTerabyte(megabyteToBit(megabyte));
-    }
-    //////////////////////////////////////////////
+function tebibitToMebibit(tebibit) {
+    return bitToMebibit(tebibitToBit(tebibit));
+}
 
-    function tebibitToBit(tebibit) {
-        return tebibit * 1099512000000;
-    }
+function tebibitToMegabit(tebibit) {
+    return bitToMegabit(tebibitToBit(tebibit));
+}
 
-    function tebibitToGibibit(tebibit) {
-        return bitToGibibit(tebibitToBit(tebibit));
-    }
+function tebibitToMegabyte(tebibit) {
+    return bitToMegabyte(tebibitToBit(tebibit));
+}
 
-    function tebibitToGigabit(tebibit) {
-        return bitToGigabit(tebibitToBit(tebibit));
-    }
+function tebibitToTerabit(tebibit) {
+    return bitToTerabit(tebibitToBit(tebibit));
+}
 
-    function tebibitToGigabyte(tebibit) {
-        return bitToGigabyte(tebibitToBit(tebibit));
-    }
+function tebibitToTerabyte(tebibit) {
+    return bitToTerabyte(tebibitToBit(tebibit));
+}
 
-    function tebibitToKibibit(tebibit) {
-        return bitToKibibit(tebibitToBit(tebibit));
-    }
+//////////////////////////////////////////////////
 
-    function tebibitToKilobit(tebibit) {
-        return bitToKilobit(tebibitToBit(tebibit));
-    }
+function terabitToBit(terabit) {
+    return terabit * 1000000000000;
+}
 
-    function tebibitToKilobyte(tebibit) {
-        return bitToKilobyte(tebibitToBit(tebibit));
-    }
+function terabitToGibibit(terabit) {
+    return bitToGibibit(terabitToBit(terabit));
+}
 
-    function tebibitToMebibit(tebibit) {
-        return bitToMebibit(tebibitToBit(tebibit));
-    }
+function terabitToGigabit(terabit) {
+    return bitToGigabit(terabitToBit(terabit));
+}
 
-    function tebibitToMegabit(tebibit) {
-        return bitToMegabit(tebibitToBit(tebibit));
-    }
+function terabitToGigabyte(terabit) {
+    return bitToGigabyte(terabitToBit(terabit));
+}
 
-    function tebibitToMegabyte(tebibit) {
-        return bitToMegabyte(tebibitToBit(tebibit));
-    }
+function terabitToKibibit(terabit) {
+    return bitToKibibit(terabitToBit(terabit));
+}
 
-    function tebibitToTerabit(tebibit) {
-        return bitToTerabit(tebibitToBit(tebibit));
-    }
+function terabitToKilobit(terabit) {
+    return bitToKilobit(terabitToBit(terabit));
+}
 
-    function tebibitToTerabyte(tebibit) {
-        return bitToTerabyte(tebibitToBit(tebibit));
-    }
+function terabitToKilobyte(terabit) {
+    return bitToKilobyte(terabitToBit(terabit));
+}
 
-    //////////////////////////////////////////////////
+function terabitToMebibit(terabit) {
+    return bitToMebibit(terabitToBit(terabit));
+}
 
-    function terabitToBit(terabit) {
-        return terabit * 1000000000000;
-    }
+function terabitToMegabit(terabit) {
+    return bitToMegabit(terabitToBit(terabit));
+}
 
-    function terabitToGibibit(terabit) {
-        return bitToGibibit(terabitToBit(terabit));
-    }
+function terabitToMegabyte(terabit) {
+    return bitToMegabyte(terabitToBit(terabit));
+}
 
-    function terabitToGigabit(terabit) {
-        return bitToGigabit(terabitToBit(terabit));
-    }
+function terabitToTebibit(terabit) {
+    return bitToTebibit(terabitToBit(terabit));
+}
 
-    function terabitToGigabyte(terabit) {
-        return bitToGigabyte(terabitToBit(terabit));
-    }
+function terabitToTerabyte(terabit) {
+    return bitToTerabyte(terabitToBit(terabit));
+}
+//////////////////////////////////////////////
 
-    function terabitToKibibit(terabit) {
-        return bitToKibibit(terabitToBit(terabit));
-    }
+function terabyteToBit(terabyte) {
+    return terabyte * 8000000000000;
+}
 
-    function terabitToKilobit(terabit) {
-        return bitToKilobit(terabitToBit(terabit));
-    }
+function terabyteToGibibit(terabyte) {
+    return bitToGibibit(terabyteToBit(terabyte));
+}
 
-    function terabitToKilobyte(terabit) {
-        return bitToKilobyte(terabitToBit(terabit));
-    }
+function terabyteToGigabit(terabyte) {
+    return bitToGigabit(terabyteToBit(terabyte));
+}
 
-    function terabitToMebibit(terabit) {
-        return bitToMebibit(terabitToBit(terabit));
-    }
+function terabyteToGigabyte(terabyte) {
+    return bitToGigabyte(terabyteToBit(terabyte));
+}
 
-    function terabitToMegabit(terabit) {
-        return bitToMegabit(terabitToBit(terabit));
-    }
+function terabyteToKibibit(terabyte) {
+    return bitToKibibit(terabyteToBit(terabyte));
+}
 
-    function terabitToMegabyte(terabit) {
-        return bitToMegabyte(terabitToBit(terabit));
-    }
+function terabyteToKilobit(terabyte) {
+    return bitToKilobit(terabyteToBit(terabyte));
+}
 
-    function terabitToTebibit(terabit) {
-        return bitToTebibit(terabitToBit(terabit));
-    }
+function terabyteToKilobyte(terabyte) {
+    return bitToKilobyte(terabyteToBit(terabyte));
+}
 
-    function terabitToTerabyte(terabit) {
-        return bitToTerabyte(terabitToBit(terabit));
-    }
-    //////////////////////////////////////////////
+function terabyteToMebibit(terabyte) {
+    return bitToMebibit(terabyteToBit(terabyte));
+}
 
-    function terabyteToBit(terabyte) {
-        return terabyte * 8000000000000;
-    }
+function terabyteToMegabit(terabyte) {
+    return bitToMegabit(terabyteToBit(terabyte));
+}
 
-    function terabyteToGibibit(terabyte) {
-        return bitToGibibit(terabyteToBit(terabyte));
-    }
+function terabyteToMegabyte(terabyte) {
+    return bitToMegabyte(terabyteToBit(terabyte));
+}
 
-    function terabyteToGigabit(terabyte) {
-        return bitToGigabit(terabyteToBit(terabyte));
-    }
+function terabyteToTebibit(terabyte) {
+    return bitToTebibit(terabyteToBit(terabyte));
+}
 
-    function terabyteToGigabyte(terabyte) {
-        return bitToGigabyte(terabyteToBit(terabyte));
-    }
+function terabyteToTerabit(terabyte) {
+    return bitToTerabit(terabyteToBit(terabyte));
+}
 
-    function terabyteToKibibit(terabyte) {
-        return bitToKibibit(terabyteToBit(terabyte));
-    }
 
-    function terabyteToKilobit(terabyte) {
-        return bitToKilobit(terabyteToBit(terabyte));
-    }
 
-    function terabyteToKilobyte(terabyte) {
-        return bitToKilobyte(terabyteToBit(terabyte));
-    }
 
-    function terabyteToMebibit(terabyte) {
-        return bitToMebibit(terabyteToBit(terabyte));
-    }
 
-    function terabyteToMegabit(terabyte) {
-        return bitToMegabit(terabyteToBit(terabyte));
-    }
 
-    function terabyteToMegabyte(terabyte) {
-        return bitToMegabyte(terabyteToBit(terabyte));
-    }
 
-    function terabyteToTebibit(terabyte) {
-        return bitToTebibit(terabyteToBit(terabyte));
-    }
 
-    function terabyteToTerabit(terabyte) {
-        return bitToTerabit(terabyteToBit(terabyte));
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function feetpersecondToKilometreperhour(feet) {
+    return feet * 1.09728;
+}
+
+function feetpersecondToKnot(feet) {
+    return feet * 0.5924835;
+}
+
+function feetpersecondToMetrepersecond(feet) {
+    return feet * 0.3048;
+}
+
+function feetpersecondToMileperhour(feet) {
+    return feet * 0.6818182;
+}
+
+function kilometreperhourToFeetpersecond(kilometre) {
+    return kilometre / 1.09728;
+}
+
+function kilometreperhourToKnot(kilometre) {
+    return kilometre * 0.5399565;
+}
+
+function kilometreperhourToMetrepersecond(kilometre) {
+    return kilometre * 0.2777778;
+}
+
+function kilometreperhourToMileperhour(kilometre) {
+    return kilometre * 0.6213712;
+}
+
+
+function knotToFeetpersecond(knot) {
+    return knot * 1.687811;
+}
+
+function knotToKilometreperhour(knot) {
+    return knot * 1.852001;
+}
+
+function knotToMetrepersecond(knot) {
+    return knot * 0.5144447;
+}
+
+function knotToMileperhour(knot) {
+    return knot * 1.15078;
+}
+
+function metrepersecondToFeetpersecond(metre) {
+    return metre * 3.28084;
+
+}
+
+function metrepersecondToKilometreperhour(metre) {
+    return metre * 3.6;
+}
+
+function metrepersecondToKnot(metre) {
+    return metre * 1.943844;
+}
+
+function metrepersecondToMileperhour(metre) {
+    return metre * 2.236936;
+}
+
+function mileperhourToFeetpersecond(mile) {
+    return mile * 1.466667;
+}
+
+function mileperhourToKnot(mile) {
+    return mile * 0.8689758;
+}
+
+function mileperhourToMetrepersecond(mile) {
+    return mile * 0.44704;
+}
+
+function mileperhourToKilometreperhour(mile) {
+    return mile * 1.609344;
+}

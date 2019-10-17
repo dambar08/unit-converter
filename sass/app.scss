@@ -51,26 +51,19 @@ body {
                 border-radius: 5px 5px 0 0;
                 appearance: none;
 
-                &::inner-spin-button {
-                    @include appearance-none;
-                    margin:none;
-                }
-                &::outer-spin-button{
-                    @include appearance-none;
-                    margin:none;
+                &::-webkit-inner-spin-button {
+                    appearance: none;
+                    margin: none;
                 }
             }
 
             select {
-                border-radius: 0 0px 5px 5px;
+                border-radius: 0px 0px 5px 5px;
                 text-align: center;
-
-
             }
         }
     }
 }
-
 
 
 select {
